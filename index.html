@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="lightbox.css"/> 
+  <link rel="stylesheet" href="lightbox.css"/>
   <link rel="stylesheet" href="order-modal.css"/>
 </head>
 <body>
@@ -20,7 +20,7 @@
     <div class="ld-icon">✿</div>
     <div class="ld-title">Art <em>by Joe</em></div>
     <div class="ld-prog"><div class="ld-bar"></div></div>
-    <p class="ld-sub">Macramé Artisanal · Bénin 🇧🇯</p>
+    <p class="ld-sub" data-fr="Macramé Artisanal · Bénin 🇧🇯" data-en="Artisan Macramé · Benin 🇧🇯">Macramé Artisanal · Bénin 🇧🇯</p>
   </div>
 </div>
 
@@ -40,14 +40,16 @@
       </div>
       <nav class="nav" id="nav">
         <ul class="nav-list">
-          <li><a href="#home"      class="nav-link active">Accueil</a></li>
-          <li><a href="#galerie"   class="nav-link">Galerie</a></li>
-          <li><a href="#boutique"  class="nav-link">Boutique</a></li>
-          <li><a href="#apropos"   class="nav-link">À Propos</a></li>
-          <li><a href="#contact"   class="nav-link">Contact</a></li>
+          <li><a href="#home"     class="nav-link active" data-fr="Accueil"  data-en="Home">Accueil</a></li>
+          <li><a href="#galerie"  class="nav-link"        data-fr="Galerie"  data-en="Gallery">Galerie</a></li>
+          <li><a href="#boutique" class="nav-link"        data-fr="Boutique" data-en="Shop">Boutique</a></li>
+          <li><a href="#apropos"  class="nav-link"        data-fr="À Propos" data-en="About">À Propos</a></li>
+          <li><a href="#contact"  class="nav-link"        data-fr="Contact"  data-en="Contact">Contact</a></li>
         </ul>
       </nav>
-      <a href="#contact" class="btn btn-primary desktop-only">Commander</a>
+      <a href="#contact" class="btn btn-primary desktop-only" data-fr="Commander" data-en="Order Now">Commander</a>
+
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer le thème">🌙</button>
       <button class="burger-menu" id="burger-menu" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -58,30 +60,38 @@
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-background">
-    <div class="hero-image" style="background-image: url('images/sda.jpg');">
-      <div class="hero-overlay"></div>
+    <div class="hero-slider" id="hero-slider">
+      <div class="hero-slide" style="background-image: url('images/sda.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('images/sd17.jpg');"></div>
     </div>
+    <div class="hero-overlay"></div>
   </div>
+
+  <div class="hero-dots" id="hero-dots">
+    <button class="hero-dot active" data-index="0"></button>
+    <button class="hero-dot" data-index="1"></button>
+  </div>
+
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-title">
-          <span class="hero-subtitle">Créations Uniques · Bénin 🇧🇯</span>
-          L'Art du Nœud, <span class="highlight">Tissé avec Âme</span>
+          <span class="hero-subtitle" data-fr="Créations Uniques · Bénin 🇧🇯" data-en="Unique Creations · Benin 🇧🇯">Créations Uniques · Bénin 🇧🇯</span>
+          <span data-fr="L'Art du Nœud," data-en="The Art of Knots,">L'Art du Nœud,</span>
+          <span class="highlight" data-fr="Tissé avec Âme" data-en="Woven with Soul">Tissé avec Âme</span>
         </h1>
-        <p class="hero-description">
-          Découvrez l'univers du macramé artisanal de Joseph Dehazounde.
-          Chaque pièce est unique — sandales, sacs, pixel art — créée avec passion à Porto-Novo.
+        <p class="hero-description" data-fr="Découvrez l'univers du macramé artisanal de Joseph Dehazounde. Chaque pièce est unique — sandales, sacs, pixel art — créée avec passion à Porto-Novo." data-en="Discover the world of artisan macramé by Joseph Dehazounde. Each piece is unique — sandals, bags, pixel art — crafted with passion in Porto-Novo.">
+          Découvrez l'univers du macramé artisanal de Joseph Dehazounde. Chaque pièce est unique — sandales, sacs, pixel art — créée avec passion à Porto-Novo.
         </p>
         <div class="hero-buttons">
-          <a href="#galerie"  class="btn btn-primary btn-large">Découvrir mes créations</a>
-          <a href="#apropos"  class="btn btn-secondary btn-large">En savoir plus</a>
+          <a href="#galerie" class="btn btn-primary btn-large"   data-fr="Découvrir mes créations" data-en="Discover My Creations">Découvrir mes créations</a>
+          <a href="#apropos" class="btn btn-secondary btn-large" data-fr="En savoir plus"           data-en="Learn More">En savoir plus</a>
         </div>
       </div>
     </div>
   </div>
   <div class="scroll-indicator">
-    <span>Défiler</span>
+    <span data-fr="Défiler" data-en="Scroll">Défiler</span>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
   </div>
 </section>
@@ -90,63 +100,32 @@
 <section class="gallery-section" id="galerie">
   <div class="container">
     <div class="gallery-header">
-      <span class="section-tag">Portfolio</span>
-      <h2 class="section-title">Mes <span class="highlight-text">Créations</span></h2>
-      <p class="section-description">Les vraies créations de Joseph — 100% faites main à Porto-Novo & Calavi, Bénin.</p>
+      <span class="section-tag" data-fr="Portfolio" data-en="Portfolio">Portfolio</span>
+      <h2 class="section-title"><span data-fr="Mes" data-en="My">Mes</span> <span class="highlight-text" data-fr="Créations" data-en="Creations">Créations</span></h2>
+      <p class="section-description" data-fr="Les vraies créations de Joseph — 100% faites main à Porto-Novo & Calavi, Bénin." data-en="Joseph's real creations — 100% handmade in Porto-Novo & Calavi, Benin.">Les vraies créations de Joseph — 100% faites main à Porto-Novo & Calavi, Bénin.</p>
     </div>
-
     <div class="gallery-filters">
-      <button class="filter-btn active" data-filter="all">Tout</button>
-      <button class="filter-btn" data-filter="pixel">🎨 Pixel Macramé</button>
-      <button class="filter-btn" data-filter="sac">👜 Sacs</button>
-      <button class="filter-btn" data-filter="sandales">👡 Sandales</button>
+      <button class="filter-btn active" data-filter="all"      data-fr="Tout"             data-en="All">Tout</button>
+      <button class="filter-btn"        data-filter="pixel"    data-fr="🎨 Pixel Macramé" data-en="🎨 Pixel Macramé">🎨 Pixel Macramé</button>
+      <button class="filter-btn"        data-filter="sac"      data-fr="👜 Sacs"           data-en="👜 Bags">👜 Sacs</button>
+      <button class="filter-btn"        data-filter="sandales" data-fr="👡 Sandales"       data-en="👡 Sandals">👡 Sandales</button>
     </div>
 
     <!-- Pixel Macramé -->
     <div class="gal-category" id="cat-pixel" data-cat="pixel">
       <div class="gal-cat-header">
         <span class="gal-cat-icon">🎨</span>
-        <h3 class="gal-cat-title">Pixel Macramé</h3>
+        <h3 class="gal-cat-title" data-fr="Pixel Macramé" data-en="Pixel Macramé">Pixel Macramé</h3>
         <div class="gal-cat-line"></div>
-        <span class="gal-cat-count">6 créations</span>
+        <span class="gal-cat-count" data-fr="6 créations" data-en="6 creations">6 créations</span>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-item" data-category="pixel">
-          <div class="gallery-item-inner">
-            <img src="images/mp.jpg"  alt="Portrait Pixel macramé"/>
-            <div class="gallery-overlay"><h3>Portrait Pixel</h3><p>Pixel macramé</p></div>
-          </div>
-        </div>
-        <div class="gallery-item" data-category="pixel">
-          <div class="gallery-item-inner">
-            <img src="images/mp0.jpg" alt="Pixel Art #2"/>
-            <div class="gallery-overlay"><h3>Pixel Art #2</h3><p>Pixel macramé</p></div>
-          </div>
-        </div>
-        <div class="gallery-item" data-category="pixel">
-          <div class="gallery-item-inner">
-            <img src="images/mp1.jpg" alt="Pixel Art #3"/>
-            <div class="gallery-overlay"><h3>Pixel Art #3</h3><p>Pixel macramé</p></div>
-          </div>
-        </div>
-        <div class="gallery-item" data-category="pixel">
-          <div class="gallery-item-inner">
-            <img src="images/mp2.jpg" alt="Pixel Art #4"/>
-            <div class="gallery-overlay"><h3>Pixel Art #4</h3><p>Pixel macramé</p></div>
-          </div>
-        </div>
-        <div class="gallery-item" data-category="pixel">
-          <div class="gallery-item-inner">
-            <img src="images/nv.jpg" alt="Pixel Art Nouveau"/>
-            <div class="gallery-overlay"><h3>Pixel Art Nouveau</h3><p>Pixel macramé</p></div>
-          </div>
-        </div>
-        <div class="gallery-item" data-category="pixel">
-          <div class="gallery-item-inner">
-            <img src="images/nv1.jpg" alt="Pixel Art Nouveau #2"/>
-            <div class="gallery-overlay"><h3>Pixel Art Nouveau #2</h3><p>Pixel macramé</p></div>
-          </div>
-        </div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/mp.jpg"  alt="Portrait Pixel"/> <div class="gallery-overlay"><h3 data-fr="Portrait Pixel"      data-en="Pixel Portrait">Portrait Pixel</h3>     <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/mp0.jpg" alt="Pixel Art #2"/>   <div class="gallery-overlay"><h3>Pixel Art #2</h3>                                                               <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/mp1.jpg" alt="Pixel Art #3"/>   <div class="gallery-overlay"><h3>Pixel Art #3</h3>                                                               <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/mp2.jpg" alt="Pixel Art #4"/>   <div class="gallery-overlay"><h3>Pixel Art #4</h3>                                                               <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/nv.jpg"  alt="Pixel Nouveau"/>  <div class="gallery-overlay"><h3 data-fr="Pixel Art Nouveau"    data-en="New Pixel Art">Pixel Art Nouveau</h3>    <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/nv1.jpg" alt="Pixel Nouveau 2"/><div class="gallery-overlay"><h3 data-fr="Pixel Art Nouveau #2" data-en="New Pixel Art #2">Pixel Art Nouveau #2</h3><p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
       </div>
     </div>
 
@@ -154,23 +133,13 @@
     <div class="gal-category" id="cat-sac" data-cat="sac">
       <div class="gal-cat-header">
         <span class="gal-cat-icon">👜</span>
-        <h3 class="gal-cat-title">Sacs Macramé</h3>
+        <h3 class="gal-cat-title" data-fr="Sacs Macramé" data-en="Macramé Bags">Sacs Macramé</h3>
         <div class="gal-cat-line"></div>
-        <span class="gal-cat-count">2 créations</span>
+        <span class="gal-cat-count" data-fr="2 créations" data-en="2 creations">2 créations</span>
       </div>
       <div class="gallery-grid gallery-grid-2">
-        <div class="gallery-item" data-category="sac">
-          <div class="gallery-item-inner">
-            <img src="images/sc.jpg"  alt="Sac Damier"/>
-            <div class="gallery-overlay"><h3>Sac Damier</h3><p>Sacs macramé</p></div>
-          </div>
-        </div>
-        <div class="gallery-item" data-category="sac">
-          <div class="gallery-item-inner">
-            <img src="images/sc0.jpg" alt="Sac Arc-en-Ciel"/>
-            <div class="gallery-overlay"><h3>Sac Arc-en-Ciel</h3><p>Sacs macramé</p></div>
-          </div>
-        </div>
+        <div class="gallery-item" data-category="sac"><div class="gallery-item-inner"><img src="images/sc.jpg"  alt="Sac Damier"/><div class="gallery-overlay"><h3 data-fr="Sac Damier"     data-en="Checkered Bag">Sac Damier</h3>      <p data-fr="Sacs macramé" data-en="Macramé bags">Sacs macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sac"><div class="gallery-item-inner"><img src="images/sc0.jpg" alt="Sac Arc"/><div class="gallery-overlay">    <h3 data-fr="Sac Arc-en-Ciel" data-en="Rainbow Bag">Sac Arc-en-Ciel</h3><p data-fr="Sacs macramé" data-en="Macramé bags">Sacs macramé</p></div></div></div>
       </div>
     </div>
 
@@ -178,28 +147,28 @@
     <div class="gal-category" id="cat-sandales" data-cat="sandales">
       <div class="gal-cat-header">
         <span class="gal-cat-icon">👡</span>
-        <h3 class="gal-cat-title">Sandales Macramé</h3>
+        <h3 class="gal-cat-title" data-fr="Sandales Macramé" data-en="Macramé Sandals">Sandales Macramé</h3>
         <div class="gal-cat-line"></div>
-        <span class="gal-cat-count">12 créations</span>
+        <span class="gal-cat-count" data-fr="12 créations" data-en="12 creations">12 créations</span>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd.jpg"   alt="Sandales #1"/><div class="gallery-overlay"><h3>Sandales</h3><p>Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd0.jpg"  alt="Sandales #2"/><div class="gallery-overlay"><h3>Sandales Papillon</h3><p>Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd1.jpg"  alt="Sandales #3"/><div class="gallery-overlay"><h3>Sandales Aztèques</h3><p>Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd2.jpg"  alt="Sandales #4"/><div class="gallery-overlay"><h3>Sandales Fleurs</h3><p>Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd3.jpg"  alt="Sandales #5"/><div class="gallery-overlay"><h3>Sandales Géo</h3><p>Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd4.jpg"  alt="Sandales #6"/><div class="gallery-overlay"><h3>Sandales Portées</h3><p>Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd5.jpg"  alt="Sandales #7"/><div class="gallery-overlay"><h3>Sandales Colorées</h3><p>Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd6.jpg"  alt="Sandales #8"/><div class="gallery-overlay"><h3>Sandales Papillon</h3><p>Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd7.jpg"  alt="Sandales #9"/><div class="gallery-overlay"><h3>Sandales #9</h3><p>Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd8.jpg"  alt="Sandales #10"/><div class="gallery-overlay"><h3>Sandales #10</h3><p>Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd9.jpg"  alt="Sandales #11"/><div class="gallery-overlay"><h3>Sandales #11</h3><p>Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sda.jpg"  alt="Sandales Edition"/><div class="gallery-overlay"><h3>Sandales Édition</h3><p>Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd.jpg"  alt="Sandales #1"/> <div class="gallery-overlay"><h3 data-fr="Sandales"          data-en="Sandals">Sandales</h3>            <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd0.jpg" alt="Sandales #2"/> <div class="gallery-overlay"><h3 data-fr="Sandales Papillon"  data-en="Butterfly Sandals">Sandales Papillon</h3> <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd1.jpg" alt="Sandales #3"/> <div class="gallery-overlay"><h3 data-fr="Sandales Aztèques"  data-en="Aztec Sandals">Sandales Aztèques</h3>  <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd2.jpg" alt="Sandales #4"/> <div class="gallery-overlay"><h3 data-fr="Sandales Fleurs"    data-en="Flower Sandals">Sandales Fleurs</h3>    <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd3.jpg" alt="Sandales #5"/> <div class="gallery-overlay"><h3 data-fr="Sandales Géo"       data-en="Geo Sandals">Sandales Géo</h3>        <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd4.jpg" alt="Sandales #6"/> <div class="gallery-overlay"><h3 data-fr="Sandales Portées"   data-en="Worn Sandals">Sandales Portées</h3>    <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd5.jpg" alt="Sandales #7"/> <div class="gallery-overlay"><h3 data-fr="Sandales Colorées"  data-en="Colorful Sandals">Sandales Colorées</h3>  <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd6.jpg" alt="Sandales #8"/> <div class="gallery-overlay"><h3 data-fr="Sandales Papillon"  data-en="Butterfly Sandals">Sandales Papillon</h3> <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd7.jpg" alt="Sandales #9"/> <div class="gallery-overlay"><h3>Sandales #9</h3>                                                                <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd8.jpg" alt="Sandales #10"/><div class="gallery-overlay"><h3>Sandales #10</h3>                                                               <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd9.jpg" alt="Sandales #11"/><div class="gallery-overlay"><h3>Sandales #11</h3>                                                               <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sda.jpg" alt="Sandales Ed"/> <div class="gallery-overlay"><h3 data-fr="Sandales Édition"   data-en="Edition Sandals">Sandales Édition</h3>   <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
       </div>
     </div>
 
     <div class="gallery-cta">
-      <a href="#contact" class="btn btn-primary">Commander une création personnalisée</a>
+      <a href="#contact" class="btn btn-primary" data-fr="Commander une création personnalisée" data-en="Order a Custom Creation">Commander une création personnalisée</a>
     </div>
   </div>
 </section>
@@ -208,135 +177,42 @@
 <section class="boutique-section" id="boutique">
   <div class="container">
     <div class="gallery-header">
-      <span class="section-tag">Boutique</span>
-      <h2 class="section-title">Nos <span class="highlight-text">Produits</span></h2>
-      <p class="section-description">Commandez directement vos créations préférées — livraison à Porto-Novo et Calavi.</p>
+      <span class="section-tag" data-fr="Boutique" data-en="Shop">Boutique</span>
+      <h2 class="section-title"><span data-fr="Nos" data-en="Our">Nos</span> <span class="highlight-text" data-fr="Produits" data-en="Products">Produits</span></h2>
+      <p class="section-description" data-fr="Commandez directement vos créations préférées — livraison à Porto-Novo et Calavi." data-en="Order your favorite creations directly — delivery to Porto-Novo and Calavi.">Commandez directement vos créations préférées — livraison à Porto-Novo et Calavi.</p>
     </div>
     <div class="shop-grid">
       <article class="prod-card">
-        <div class="prod-img">
-          <img src="images/sd6.jpg" alt="Sandales Papillon"/>
-          <span class="prod-badge badge-new">Nouveau</span>
-          <div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 8 000 FCFA</button></div>
-        </div>
-        <div class="prod-body">
-          <span class="prod-cat">Sandales Macramé</span>
-          <h3 class="prod-name">Sandales Papillon</h3>
-          <p class="prod-desc">Motif papillon multicolore, semelle naturelle confortable.</p>
-          <div class="prod-foot">
-            <span class="price">8 000 <small>FCFA</small></span>
-            <span class="stars">★★★★★</span>
-          </div>
-        </div>
+        <div class="prod-img"><img src="images/sd6.jpg" alt="Sandales Papillon"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm" data-fr="Commander — 8 000 FCFA" data-en="Order — 8,000 FCFA">Commander — 8 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Sandales Macramé" data-en="Macramé Sandals">Sandales Macramé</span><h3 class="prod-name" data-fr="Sandales Papillon" data-en="Butterfly Sandals">Sandales Papillon</h3><p class="prod-desc" data-fr="Motif papillon multicolore, semelle naturelle confortable." data-en="Multicolor butterfly pattern, comfortable natural sole.">Motif papillon multicolore, semelle naturelle confortable.</p><div class="prod-foot"><span class="price">8 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img">
-          <img src="images/sc.jpg" alt="Sac Damier"/>
-          <span class="prod-badge badge-pop">Populaire</span>
-          <div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 12 000 FCFA</button></div>
-        </div>
-        <div class="prod-body">
-          <span class="prod-cat">Sacs Macramé</span>
-          <h3 class="prod-name">Sac Damier</h3>
-          <p class="prod-desc">Sac macramé tissé main à motifs damier — robuste et tendance.</p>
-          <div class="prod-foot">
-            <span class="price">12 000 <small>FCFA</small></span>
-            <span class="stars">★★★★★</span>
-          </div>
-        </div>
+        <div class="prod-img"><img src="images/sc.jpg" alt="Sac Damier"/><span class="prod-badge badge-pop" data-fr="Populaire" data-en="Popular">Populaire</span><div class="prod-hover"><button class="btn btn-primary btn-sm" data-fr="Commander — 12 000 FCFA" data-en="Order — 12,000 FCFA">Commander — 12 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Sacs Macramé" data-en="Macramé Bags">Sacs Macramé</span><h3 class="prod-name" data-fr="Sac Damier" data-en="Checkered Bag">Sac Damier</h3><p class="prod-desc" data-fr="Sac macramé tissé main à motifs damier — robuste et tendance." data-en="Hand-woven macramé bag with checkered pattern — sturdy and stylish.">Sac macramé tissé main à motifs damier — robuste et tendance.</p><div class="prod-foot"><span class="price">12 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img">
-          <img src="images/sc0.jpg" alt="Sac Arc-en-Ciel"/>
-          <div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 15 000 FCFA</button></div>
-        </div>
-        <div class="prod-body">
-          <span class="prod-cat">Sacs Macramé</span>
-          <h3 class="prod-name">Sac Arc-en-Ciel</h3>
-          <p class="prod-desc">Sac rayé multicolore avec nœud satiné décoratif.</p>
-          <div class="prod-foot">
-            <span class="price">15 000 <small>FCFA</small></span>
-            <span class="stars">★★★★★</span>
-          </div>
-        </div>
+        <div class="prod-img"><img src="images/sc0.jpg" alt="Sac Arc-en-Ciel"/><div class="prod-hover"><button class="btn btn-primary btn-sm" data-fr="Commander — 15 000 FCFA" data-en="Order — 15,000 FCFA">Commander — 15 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Sacs Macramé" data-en="Macramé Bags">Sacs Macramé</span><h3 class="prod-name" data-fr="Sac Arc-en-Ciel" data-en="Rainbow Bag">Sac Arc-en-Ciel</h3><p class="prod-desc" data-fr="Sac rayé multicolore avec nœud satiné décoratif." data-en="Multicolor striped bag with decorative satin knot.">Sac rayé multicolore avec nœud satiné décoratif.</p><div class="prod-foot"><span class="price">15 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img">
-          <img src="images/mp.jpg" alt="Portrait Pixel"/>
-          <span class="prod-badge badge-excl">Exclusif</span>
-          <div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 20 000 FCFA</button></div>
-        </div>
-        <div class="prod-body">
-          <span class="prod-cat">Pixel Macramé</span>
-          <h3 class="prod-name">Portrait Pixel</h3>
-          <p class="prod-desc">Tableau macramé pixel haute résolution — portrait personnalisé.</p>
-          <div class="prod-foot">
-            <span class="price">20 000 <small>FCFA</small></span>
-            <span class="stars">★★★★★</span>
-          </div>
-        </div>
+        <div class="prod-img"><img src="images/mp.jpg" alt="Portrait Pixel"/><span class="prod-badge badge-excl" data-fr="Exclusif" data-en="Exclusive">Exclusif</span><div class="prod-hover"><button class="btn btn-primary btn-sm" data-fr="Commander — 20 000 FCFA" data-en="Order — 20,000 FCFA">Commander — 20 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Pixel Macramé" data-en="Pixel Macramé">Pixel Macramé</span><h3 class="prod-name" data-fr="Portrait Pixel" data-en="Pixel Portrait">Portrait Pixel</h3><p class="prod-desc" data-fr="Tableau macramé pixel haute résolution — portrait personnalisé." data-en="High-resolution pixel macramé artwork — custom portrait.">Tableau macramé pixel haute résolution — portrait personnalisé.</p><div class="prod-foot"><span class="price">20 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img">
-          <img src="images/nv.jpg" alt="Pixel Art Nouveau"/>
-          <span class="prod-badge badge-new">Nouveau</span>
-          <div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 20 000 FCFA</button></div>
-        </div>
-        <div class="prod-body">
-          <span class="prod-cat">Pixel Macramé</span>
-          <h3 class="prod-name">Pixel Art Nouveau</h3>
-          <p class="prod-desc">Tableau macramé pixel — création originale tissée à la main.</p>
-          <div class="prod-foot">
-            <span class="price">20 000 <small>FCFA</small></span>
-            <span class="stars">★★★★★</span>
-          </div>
-        </div>
+        <div class="prod-img"><img src="images/nv.jpg" alt="Pixel Art Nouveau"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm" data-fr="Commander — 20 000 FCFA" data-en="Order — 20,000 FCFA">Commander — 20 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Pixel Macramé" data-en="Pixel Macramé">Pixel Macramé</span><h3 class="prod-name" data-fr="Pixel Art Nouveau" data-en="New Pixel Art">Pixel Art Nouveau</h3><p class="prod-desc" data-fr="Tableau macramé pixel — création originale tissée à la main." data-en="Pixel macramé artwork — original creation hand-woven.">Tableau macramé pixel — création originale tissée à la main.</p><div class="prod-foot"><span class="price">20 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img">
-          <img src="images/nv1.jpg" alt="Pixel Art Nouveau #2"/>
-          <span class="prod-badge badge-new">Nouveau</span>
-          <div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 20 000 FCFA</button></div>
-        </div>
-        <div class="prod-body">
-          <span class="prod-cat">Pixel Macramé</span>
-          <h3 class="prod-name">Pixel Art Nouveau #2</h3>
-          <p class="prod-desc">Tableau macramé pixel — motif exclusif tissé avec soin à Porto-Novo.</p>
-          <div class="prod-foot">
-            <span class="price">20 000 <small>FCFA</small></span>
-            <span class="stars">★★★★★</span>
-          </div>
-        </div>
+        <div class="prod-img"><img src="images/nv1.jpg" alt="Pixel Art Nouveau #2"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm" data-fr="Commander — 20 000 FCFA" data-en="Order — 20,000 FCFA">Commander — 20 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Pixel Macramé" data-en="Pixel Macramé">Pixel Macramé</span><h3 class="prod-name" data-fr="Pixel Art Nouveau #2" data-en="New Pixel Art #2">Pixel Art Nouveau #2</h3><p class="prod-desc" data-fr="Tableau macramé pixel — motif exclusif tissé avec soin à Porto-Novo." data-en="Pixel macramé artwork — exclusive pattern carefully woven in Porto-Novo.">Tableau macramé pixel — motif exclusif tissé avec soin à Porto-Novo.</p><div class="prod-foot"><span class="price">20 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img">
-          <img src="images/sd1.jpg" alt="Sandales Aztèques"/>
-          <div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 10 000 FCFA</button></div>
-        </div>
-        <div class="prod-body">
-          <span class="prod-cat">Sandales Macramé</span>
-          <h3 class="prod-name">Sandales Aztèques</h3>
-          <p class="prod-desc">Design géométrique aztèque multicolore — une pièce unique.</p>
-          <div class="prod-foot">
-            <span class="price">10 000 <small>FCFA</small></span>
-            <span class="stars">★★★★★</span>
-          </div>
-        </div>
+        <div class="prod-img"><img src="images/sd1.jpg" alt="Sandales Aztèques"/><div class="prod-hover"><button class="btn btn-primary btn-sm" data-fr="Commander — 10 000 FCFA" data-en="Order — 10,000 FCFA">Commander — 10 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Sandales Macramé" data-en="Macramé Sandals">Sandales Macramé</span><h3 class="prod-name" data-fr="Sandales Aztèques" data-en="Aztec Sandals">Sandales Aztèques</h3><p class="prod-desc" data-fr="Design géométrique aztèque multicolore — une pièce unique." data-en="Multicolor Aztec geometric design — a one-of-a-kind piece.">Design géométrique aztèque multicolore — une pièce unique.</p><div class="prod-foot"><span class="price">10 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img">
-          <img src="images/sd0.jpg" alt="Sandales Fleurs"/>
-          <div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 9 000 FCFA</button></div>
-        </div>
-        <div class="prod-body">
-          <span class="prod-cat">Sandales Macramé</span>
-          <h3 class="prod-name">Sandales Fleurs</h3>
-          <p class="prod-desc">Motifs floraux délicats tissés main — féminins et colorés.</p>
-          <div class="prod-foot">
-            <span class="price">9 000 <small>FCFA</small></span>
-            <span class="stars">★★★★★</span>
-          </div>
-        </div>
+        <div class="prod-img"><img src="images/sd0.jpg" alt="Sandales Fleurs"/><div class="prod-hover"><button class="btn btn-primary btn-sm" data-fr="Commander — 9 000 FCFA" data-en="Order — 9,000 FCFA">Commander — 9 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Sandales Macramé" data-en="Macramé Sandals">Sandales Macramé</span><h3 class="prod-name" data-fr="Sandales Fleurs" data-en="Flower Sandals">Sandales Fleurs</h3><p class="prod-desc" data-fr="Motifs floraux délicats tissés main — féminins et colorés." data-en="Delicate floral patterns hand-woven — feminine and colorful.">Motifs floraux délicats tissés main — féminins et colorés.</p><div class="prod-foot"><span class="price">9 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
     </div>
   </div>
@@ -346,13 +222,13 @@
 <div class="stats-band">
   <div class="container">
     <div class="stats-inner">
-      <div class="stat-item"><span class="stat-n" data-target="5">0</span><span class="stat-l">Ans de passion</span></div>
+      <div class="stat-item"><span class="stat-n" data-target="5">0</span><span class="stat-l" data-fr="Ans de passion"    data-en="Years of passion">Ans de passion</span></div>
       <div class="stat-div">✦</div>
-      <div class="stat-item"><span class="stat-n" data-target="20">0</span><span class="stat-l">Créations uniques</span></div>
+      <div class="stat-item"><span class="stat-n" data-target="20">0</span><span class="stat-l" data-fr="Créations uniques" data-en="Unique creations">Créations uniques</span></div>
       <div class="stat-div">✦</div>
-      <div class="stat-item"><span class="stat-n" data-target="100" data-suffix="%">0</span><span class="stat-l">Fait à la main</span></div>
+      <div class="stat-item"><span class="stat-n" data-target="100" data-suffix="%">0</span><span class="stat-l" data-fr="Fait à la main" data-en="Handmade">Fait à la main</span></div>
       <div class="stat-div">✦</div>
-      <div class="stat-item"><span class="stat-n" data-target="2">0</span><span class="stat-l">Villes au Bénin</span></div>
+      <div class="stat-item"><span class="stat-n" data-target="2">0</span><span class="stat-l" data-fr="Villes au Bénin" data-en="Cities in Benin">Villes au Bénin</span></div>
     </div>
   </div>
 </div>
@@ -363,33 +239,28 @@
     <div class="about-grid">
       <div class="about-image">
         <div class="about-profile">
-          <div class="about-avatar">
-            <img src="images/johao.jpeg" alt="Joseph Dehazounde"/>
-          </div>
+          <div class="about-avatar"><img src="images/johao.jpeg" alt="Joseph Dehazounde"/></div>
           <div class="about-identity">
             <h3 class="about-name">Joseph Dehazounde</h3>
-            <p class="about-role">Expert en Tissage Macramé</p>
+            <p class="about-role" data-fr="Expert en Tissage Macramé" data-en="Macramé Weaving Expert">Expert en Tissage Macramé</p>
           </div>
         </div>
       </div>
       <div class="about-content">
-        <span class="section-tag">Mon Histoire</span>
-        <h2 class="section-title">À Propos<br>d'<span class="highlight-text">Art by Joe</span></h2>
-        <p class="about-text">Je m'appelle <strong>Joseph Dehazounde</strong>, passionné d'art manuel depuis toujours. C'est durant la période COVID en <strong>2020</strong> que j'ai découvert le macramé — un art ancestral du nœud qui m'a immédiatement captivé.</p>
-        <p class="about-text">Basé à <strong>Porto-Novo</strong> (carrefour du Cinquantenaire) et à <strong>Calavi à l'UAC</strong>, je crée des pièces uniques : sandales papillon & géométriques, sacs tissés, portraits pixel macramé.</p>
+        <span class="section-tag" data-fr="Mon Histoire" data-en="My Story">Mon Histoire</span>
+        <h2 class="section-title">
+          <span data-fr="À Propos d'" data-en="About ">À Propos d'</span><span class="highlight-text">Art by Joe</span>
+        </h2>
+        <p class="about-text" data-fr="Je m'appelle <strong>Joseph Dehazounde</strong>, passionné d'art manuel depuis toujours. C'est durant la période COVID en <strong>2020</strong> que j'ai découvert le macramé — un art ancestral du nœud qui m'a immédiatement captivé." data-en="My name is <strong>Joseph Dehazounde</strong>, passionate about handcraft art my whole life. It was during the COVID period in <strong>2020</strong> that I discovered macramé — an ancestral knotting art that immediately captivated me.">
+          Je m'appelle <strong>Joseph Dehazounde</strong>, passionné d'art manuel depuis toujours. C'est durant la période COVID en <strong>2020</strong> que j'ai découvert le macramé — un art ancestral du nœud qui m'a immédiatement captivé.
+        </p>
+        <p class="about-text" data-fr="Basé à <strong>Porto-Novo</strong> (carrefour du Cinquantenaire) et à <strong>Calavi à l'UAC</strong>, je crée des pièces uniques : sandales papillon & géométriques, sacs tissés, portraits pixel macramé." data-en="Based in <strong>Porto-Novo</strong> (Cinquantenaire crossroads) and <strong>Calavi at UAC</strong>, I create unique pieces: butterfly & geometric sandals, woven bags, pixel macramé portraits.">
+          Basé à <strong>Porto-Novo</strong> (carrefour du Cinquantenaire) et à <strong>Calavi à l'UAC</strong>, je crée des pièces uniques : sandales papillon & géométriques, sacs tissés, portraits pixel macramé.
+        </p>
         <div class="about-features">
-          <div class="feature-item">
-            <i>❤</i>
-            <div><h4>Fait Main</h4><p>Chaque pièce est unique</p></div>
-          </div>
-          <div class="feature-item">
-            <i>🌿</i>
-            <div><h4>Matériaux Naturels</h4><p>Fils de qualité premium</p></div>
-          </div>
-          <div class="feature-item">
-            <i>📦</i>
-            <div><h4>Livraison Soignée</h4><p>Porto-Novo & Calavi</p></div>
-          </div>
+          <div class="feature-item"><i>❤</i><div><h4 data-fr="Fait Main"          data-en="Handmade">Fait Main</h4>          <p data-fr="Chaque pièce est unique"   data-en="Every piece is unique">Chaque pièce est unique</p></div></div>
+          <div class="feature-item"><i>🌿</i><div><h4 data-fr="Matériaux Naturels" data-en="Natural Materials">Matériaux Naturels</h4><p data-fr="Fils de qualité premium"   data-en="Premium quality threads">Fils de qualité premium</p></div></div>
+          <div class="feature-item"><i>📦</i><div><h4 data-fr="Livraison Soignée"  data-en="Careful Delivery">Livraison Soignée</h4>  <p data-fr="Porto-Novo & Calavi"       data-en="Porto-Novo & Calavi">Porto-Novo & Calavi</p></div></div>
         </div>
       </div>
     </div>
@@ -401,65 +272,33 @@
   <div class="container">
     <div class="contact-wrapper">
       <div class="contact-info">
-        <span class="section-tag">Restons en Contact</span>
-        <h2 class="section-title">Parlons de <span class="highlight-text">Votre Projet</span></h2>
-        <p class="contact-description">Vous avez une idée de création personnalisée ? N'hésitez pas — je suis disponible et réactif !</p>
+        <span class="section-tag" data-fr="Restons en Contact" data-en="Get in Touch">Restons en Contact</span>
+        <h2 class="section-title"><span data-fr="Parlons de " data-en="Let's Talk About ">Parlons de </span><span class="highlight-text" data-fr="Votre Projet" data-en="Your Project">Votre Projet</span></h2>
+        <p class="contact-description" data-fr="Vous avez une idée de création personnalisée ? N'hésitez pas — je suis disponible et réactif !" data-en="Have an idea for a custom creation? Don't hesitate — I'm available and responsive!">Vous avez une idée de création personnalisée ? N'hésitez pas — je suis disponible et réactif !</p>
         <div class="contact-details">
-          <div class="contact-detail-item">
-            <span class="cd-icon">✉</span>
-            <div><h4>Email</h4><a href="mailto:josephdehazounde@gmail.com">josephdehazounde@gmail.com</a></div>
-          </div>
-          <div class="contact-detail-item">
-            <span class="cd-icon">📍</span>
-            <div><h4>Localisation</h4><p>Porto-Novo & Calavi, Bénin 🇧🇯</p></div>
-          </div>
-          <div class="contact-detail-item">
-            <span class="cd-icon">💬</span>
-            <div><h4>WhatsApp</h4><a href="https://wa.me/0162108694">+01 62 10 86 94</a></div>
-          </div>
+          <div class="contact-detail-item"><span class="cd-icon">✉</span><div><h4>Email</h4><a href="/cdn-cgi/l/email-protection#6d07021e081d050908050c1702180309082d0a000c0401430e0200"><span class="__cf_email__" data-cfemail="fd97928e988d959998959c879288939998bd9a909c9491d39e9290">[email&#160;protected]</span></a></div></div>
+          <div class="contact-detail-item"><span class="cd-icon">📍</span><div><h4 data-fr="Localisation" data-en="Location">Localisation</h4><p>Porto-Novo & Calavi, Bénin 🇧🇯</p></div></div>
+          <div class="contact-detail-item"><span class="cd-icon">💬</span><div><h4>WhatsApp</h4><a href="https://wa.me/0162108694">+01 62 10 86 94</a></div></div>
         </div>
         <div class="social-links">
-          <a href="#" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </a>
-          <a href="#" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-          <a href="#" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-          </a>
-          <a href="https://wa.me/0162108694" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-          </a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a href="https://wa.me/0162108694" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
         </div>
       </div>
       <div class="contact-form-wrapper">
         <form class="contact-form" id="contact-form">
-          <div class="form-group">
-            <label for="name">Votre nom *</label>
-            <input type="text" id="name" name="name" required placeholder="Joseph Dupont"/>
-          </div>
-          <div class="form-group">
-            <label for="email">Votre email *</label>
-            <input type="email" id="email" name="email" required placeholder="vous@exemple.com"/>
-          </div>
-          <div class="form-group">
-            <label for="subject">Sujet</label>
-            <input type="text" id="subject" name="subject" placeholder="Commande personnalisée"/>
-          </div>
-          <div class="form-group">
-            <label for="message">Votre message *</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre projet..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">
-            <span>Envoyer le message</span>
-            <span>✈</span>
-          </button>
+          <div class="form-group"><label for="name"    data-fr="Votre nom *"     data-en="Your name *">Votre nom *</label><input type="text"  id="name"    name="name"    required data-placeholder-fr="Joseph Dupont"        data-placeholder-en="John Smith"         placeholder="Joseph Dupont"/></div>
+          <div class="form-group"><label for="email"   data-fr="Votre email *"   data-en="Your email *">Votre email *</label><input type="email" id="email"   name="email"   required placeholder="vous@exemple.com"/></div>
+          <div class="form-group"><label for="subject" data-fr="Sujet"           data-en="Subject">Sujet</label><input type="text"  id="subject" name="subject"          data-placeholder-fr="Commande personnalisée" data-placeholder-en="Custom order"       placeholder="Commande personnalisée"/></div>
+          <div class="form-group"><label for="message" data-fr="Votre message *" data-en="Your message *">Votre message *</label><textarea id="message" name="message" rows="5" required data-placeholder-fr="Décrivez votre projet..." data-placeholder-en="Describe your project..." placeholder="Décrivez votre projet..."></textarea></div>
+          <button type="submit" class="btn btn-primary btn-block"><span data-fr="Envoyer le message" data-en="Send Message">Envoyer le message</span><span>✈</span></button>
         </form>
         <div class="form-success" id="form-success">
           <span class="success-icon">✓</span>
-          <h3>Message envoyé !</h3>
-          <p>Merci ! Joseph vous répond très vite.</p>
+          <h3 data-fr="Message envoyé !" data-en="Message sent!">Message envoyé !</h3>
+          <p data-fr="Merci ! Joseph vous répond très vite." data-en="Thank you! Joseph will reply very soon.">Merci ! Joseph vous répond très vite.</p>
         </div>
       </div>
     </div>
@@ -472,7 +311,7 @@
     <div class="footer-content">
       <div class="footer-column">
         <h3 class="footer-title">Art by Joe</h3>
-        <p class="footer-text">Créations macramé 100% faites main — sandales, sacs, pixel art. Porto-Novo & Calavi, Bénin 🇧🇯</p>
+        <p class="footer-text" data-fr="Créations macramé 100% faites main — sandales, sacs, pixel art. Porto-Novo & Calavi, Bénin 🇧🇯" data-en="100% handmade macramé creations — sandals, bags, pixel art. Porto-Novo & Calavi, Benin 🇧🇯">Créations macramé 100% faites main — sandales, sacs, pixel art. Porto-Novo & Calavi, Bénin 🇧🇯</p>
         <div class="footer-social">
           <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
           <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
@@ -480,43 +319,42 @@
         </div>
       </div>
       <div class="footer-column">
-        <h3 class="footer-title">Navigation</h3>
+        <h3 class="footer-title" data-fr="Navigation" data-en="Navigation">Navigation</h3>
         <ul class="footer-links">
-          <li><a href="#home">Accueil</a></li>
-          <li><a href="#galerie">Galerie</a></li>
-          <li><a href="#boutique">Boutique</a></li>
-          <li><a href="#apropos">À Propos</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#home"     data-fr="Accueil"  data-en="Home">Accueil</a></li>
+          <li><a href="#galerie"  data-fr="Galerie"  data-en="Gallery">Galerie</a></li>
+          <li><a href="#boutique" data-fr="Boutique" data-en="Shop">Boutique</a></li>
+          <li><a href="#apropos"  data-fr="À Propos" data-en="About">À Propos</a></li>
+          <li><a href="#contact"  data-fr="Contact"  data-en="Contact">Contact</a></li>
         </ul>
       </div>
       <div class="footer-column">
-        <h3 class="footer-title">Services</h3>
+        <h3 class="footer-title" data-fr="Services" data-en="Services">Services</h3>
         <ul class="footer-links">
-          <li><a href="#contact">Commandes personnalisées</a></li>
-          <li><a href="#boutique">Sandales macramé</a></li>
-          <li><a href="#boutique">Sacs macramé</a></li>
-          <li><a href="#boutique">Pixel macramé</a></li>
+          <li><a href="#contact"  data-fr="Commandes personnalisées" data-en="Custom orders">Commandes personnalisées</a></li>
+          <li><a href="#boutique" data-fr="Sandales macramé"         data-en="Macramé sandals">Sandales macramé</a></li>
+          <li><a href="#boutique" data-fr="Sacs macramé"             data-en="Macramé bags">Sacs macramé</a></li>
+          <li><a href="#boutique" data-fr="Pixel macramé"            data-en="Pixel macramé">Pixel macramé</a></li>
         </ul>
       </div>
       <div class="footer-column">
-        <h3 class="footer-title">Contact</h3>
+        <h3 class="footer-title" data-fr="Contact" data-en="Contact">Contact</h3>
         <ul class="footer-links">
-          <li><a href="mailto:josephdehazounde@gmail.com">josephdehazounde@gmail.com</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#a2c8cdd1c7d2cac6c7cac3d8cdd7ccc6c7e2c5cfc3cbce8cc1cdcf"><span class="__cf_email__" data-cfemail="402a2f33253028242528213a2f352e242500272d21292c6e232f2d">[email&#160;protected]</span></a></li>
           <li><span>Porto-Novo, Bénin</span></li>
           <li><span>Calavi, UAC</span></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Art by Joe · Tous droits réservés · Fait avec ❤ au Bénin 🇧🇯</p>
+      <p data-fr="© 2025 Art by Joe · Tous droits réservés · Fait avec ❤ au Bénin 🇧🇯" data-en="© 2025 Art by Joe · All rights reserved · Made with ❤ in Benin 🇧🇯">© 2025 Art by Joe · Tous droits réservés · Fait avec ❤ au Bénin 🇧🇯</p>
     </div>
   </div>
 </footer>
 
 <button class="scroll-to-top" id="scroll-to-top" aria-label="Retour en haut">↑</button>
-
 <script src="script.js"></script>
-<script src="lightbox.js"></script> 
+<script src="lightbox.js"></script>
 <script src="order-modal.js"></script>
 </body>
 </html>

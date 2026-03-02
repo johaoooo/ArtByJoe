@@ -4,56 +4,43 @@
    ============================================================ */
 
 /* ── FIX IMAGES nv.jpg et nv1.jpg ──────────────────────────── */
-/* Cible les items galerie contenant ces images spécifiques     */
 .gallery-item-inner img[src*="nv.jpg"],
 .gallery-item-inner img[src*="nv1.jpg"] {
   object-position: top center;
 }
-/* Même fix pour la boutique */
 .prod-img img[src*="nv.jpg"],
 .prod-img img[src*="nv1.jpg"] {
   object-position: top center;
 }
 
-
-/* ── LANGUAGE SWITCHER ─────────────────────────────────────── */
+/* ── BOUTON LANGUE UNIQUE CYCLIQUE ─────────────────────────── */
 .lang-switcher {
   display: flex;
   align-items: center;
-  gap: .35rem;
-  margin-left: .8rem;
+  margin-left: .5rem;
 }
-
 .lang-btn {
   background: rgba(255,255,255,.12);
-  border: 1px solid rgba(255,255,255,.25);
+  border: 1px solid rgba(255,255,255,.3);
   border-radius: 6px;
-  padding: .28rem .55rem;
-  font-size: .78rem;
+  padding: .25rem .65rem;
+  font-size: .72rem;
   font-family: var(--font-body);
-  font-weight: 600;
-  color: rgba(255,255,255,.85);
+  font-weight: 700;
+  color: rgba(255,255,255,.9);
   cursor: none;
-  transition: all .22s ease;
-  line-height: 1;
-  letter-spacing: .03em;
+  letter-spacing: .08em;
+  transition: all .2s ease;
+  min-width: 36px;
+  text-align: center;
+  line-height: 1.4;
 }
 .lang-btn:hover {
-  background: rgba(255,255,255,.22);
-  border-color: rgba(255,255,255,.5);
-  transform: translateY(-2px);
+  background: rgba(255,255,255,.25);
   color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(255,255,255,.15);
 }
-.lang-btn.active {
-  background: var(--gradient-fire);
-  background-size: 200%;
-  border-color: transparent;
-  color: #fff;
-  animation: gradientFlow 3s ease infinite;
-  box-shadow: 0 3px 12px rgba(109,40,217,.45);
-}
-
-/* Quand le header est scrollé */
 .header.scrolled .lang-btn {
   color: var(--dark-color);
   border-color: rgba(109,40,217,.3);
@@ -64,13 +51,23 @@
   border-color: var(--primary-color);
   color: var(--primary-color);
 }
-.header.scrolled .lang-btn.active {
-  background: var(--gradient-fire);
-  background-size: 200%;
-  color: #fff;
-  border-color: transparent;
+[data-theme="dark"] .header.scrolled .lang-btn {
+  color: #A78BFA;
+  border-color: rgba(167,139,250,.3);
+  background: rgba(109,40,217,.1);
+}
+[data-theme="dark"] .header.scrolled .lang-btn:hover {
+  color: #FACC15;
+  border-color: #FACC15;
 }
 
+/* ── BOUTON COMMANDER PLUS PETIT ───────────────────────────── */
+.header .btn-primary.desktop-only {
+  padding: .5rem 1.1rem !important;
+  font-size: .68rem !important;
+  border-radius: 10px !important;
+  letter-spacing: .1em;
+}
 
 /* ── ORDER MODAL OVERLAY ───────────────────────────────────── */
 .order-overlay {
@@ -107,8 +104,6 @@
   transform: scale(1) translateY(0);
   opacity: 1;
 }
-
-/* Barre déco en haut */
 .order-modal::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; height: 5px;
@@ -196,8 +191,6 @@
   box-shadow: 0 0 0 3px rgba(109,40,217,.12);
 }
 .order-form-group textarea { resize: vertical; min-height: 80px; }
-
-/* Ligne 2 colonnes */
 .order-form-row {
   display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
 }
@@ -211,33 +204,18 @@
   margin: 0 1.8rem 1rem;
   display: flex; align-items: flex-start; gap: .9rem;
 }
-.momo-icon {
-  font-size: 2rem; flex-shrink: 0; line-height: 1;
-}
+.momo-icon { font-size: 2rem; flex-shrink: 0; line-height: 1; }
 .momo-info h4 {
   font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700;
   color: #92400E; margin-bottom: .25rem;
 }
-.momo-info p {
-  font-size: .82rem; color: #78350F; line-height: 1.6;
-}
-.momo-number {
-  display: inline-block;
-  font-weight: 700; font-size: 1rem;
-  color: #D97706; letter-spacing: .05em;
-}
-.momo-steps {
-  margin-top: .5rem;
-  font-size: .78rem; color: #78350F;
-  padding-left: 1rem;
-  list-style: decimal;
-  line-height: 1.8;
-}
+.momo-info p { font-size: .82rem; color: #78350F; line-height: 1.6; }
+.momo-number { display: inline-block; font-weight: 700; font-size: 1rem; color: #D97706; letter-spacing: .05em; }
+.momo-steps { margin-top: .5rem; font-size: .78rem; color: #78350F; padding-left: 1rem; list-style: decimal; line-height: 1.8; }
 
 /* ── SUBMIT BTN ────────────────────────────────────────────── */
 .order-submit-btn {
-  width: 100%;
-  padding: 1rem;
+  width: 100%; padding: 1rem;
   background: var(--gradient-fire); background-size: 200%;
   color: #fff; border: none; border-radius: 12px;
   font-family: var(--font-body); font-size: .82rem;
@@ -247,30 +225,18 @@
   transition: transform .2s, box-shadow .2s;
   display: flex; align-items: center; justify-content: center; gap: .5rem;
 }
-.order-submit-btn:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 30px rgba(109,40,217,.55);
-}
-.order-submit-btn:disabled {
-  opacity: .65; transform: none; cursor: not-allowed;
-}
+.order-submit-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 30px rgba(109,40,217,.55); }
+.order-submit-btn:disabled { opacity: .65; transform: none; cursor: not-allowed; }
 
 /* ── SUCCESS STATE ─────────────────────────────────────────── */
-.order-success {
-  display: none; text-align: center;
-  padding: 3rem 2rem;
-}
+.order-success { display: none; text-align: center; padding: 3rem 2rem; }
 .order-success.show { display: block; animation: fadeInUp .5s ease; }
-.order-success-icon {
-  font-size: 4rem; margin-bottom: 1rem; display: block;
-  animation: gradientFlow 3s ease infinite;
-}
+.order-success-icon { font-size: 4rem; margin-bottom: 1rem; display: block; }
 .order-success h3 {
   font-family: var(--font-heading); font-size: 1.8rem;
   background: var(--gradient-fire); background-size: 200%;
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  animation: gradientFlow 3s ease infinite;
-  margin-bottom: .6rem;
+  animation: gradientFlow 3s ease infinite; margin-bottom: .6rem;
 }
 .order-success p { color: #4B5563; font-size: .9rem; line-height: 1.7; }
 .order-success .order-id {
@@ -282,10 +248,7 @@
 
 /* ── RESPONSIVE ────────────────────────────────────────────── */
 @media (max-width: 540px) {
-  .order-modal-header,
-  .order-form { padding-left: 1.2rem; padding-right: 1.2rem; }
-  .order-product-recap,
-  .momo-block { margin-left: 1.2rem; margin-right: 1.2rem; }
+  .order-modal-header, .order-form { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .order-product-recap, .momo-block { margin-left: 1.2rem; margin-right: 1.2rem; }
   .order-form-row { grid-template-columns: 1fr; }
-  .lang-btn { padding: .25rem .4rem; font-size: .7rem; }
 }
