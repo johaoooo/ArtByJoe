@@ -49,4 +49,34 @@ router.get('/me', authMiddleware, (req, res) => {
   res.json({ user: req.user });
 });
 
+// ── Changer le mot de passe ──
+router.post('/change-password', authMiddleware, async (req, res) => {
+  const { currentPassword, newPassword } = req.body;
+
+  if (!currentPassword || !newPassword)
+    return res.status(400).json({ error: 'Tous les champs sont requis' });
+
+  if (newPassword.length < 6)
+    return res.status(400).json({ error: 'Le nouveau mot de passe doit faire au moins 6 caractères' });
+
+  try {
+    // Récupérer le mot de passe hashé actuel
+    const user = await db.asyncGet('SELECT * FROM users WHERE id = ?', [req.user.id]);
+    if (!user) return res.status(404).json({ error: 'Utilisateur introuvable' });
+
+    // Vérifier l'ancien mot de passe
+    const valid = bcrypt.compareSync(currentPassword, user.password);
+    if (!valid) return res.status(401).json({ error: 'Mot de passe actuel incorrect' });
+
+    // Hasher et sauvegarder le nouveau
+    const newHash = bcrypt.hashSync(newPassword, 10);
+    await db.asyncRun('UPDATE users SET password = ? WHERE id = ?', [newHash, req.user.id]);
+
+    res.json({ message: 'Mot de passe changé avec succès' });
+  } catch (err) {
+    console.error('Erreur change-password:', err);
+    res.status(500).json({ error: 'Erreur serveur' });
+  }
+});
+
 module.exports = router;
