@@ -1,474 +1,452 @@
-/* ============================================================
-   ORDER MODAL + i18n TRADUCTION
-   Art by Joe — MTN Mobile Money · FR / EN / ES
-   ============================================================ */
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Art by Joe — Créations artisanales faites main. Macramé, bracelets, colliers, tricotage, cordonnerie, maroquinerie. Porto-Novo &amp; Calavi, Bénin."/>
+  <title>Art by Joe — Macramé Artisanal · Bénin 🇧🇯</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="lightbox.css"/>
+  <link rel="stylesheet" href="order-modal.css"/>
+</head>
+<body>
 
-   (function () {
-    'use strict';
-  
-    const i18n = {
-      fr: {
-        nav_home:'Accueil', nav_gallery:'Galerie', nav_shop:'Boutique', nav_about:'À Propos', nav_contact:'Contact', nav_order:'Commander',
-        hero_tag:'Créations Uniques · Bénin 🇧🇯',
-        hero_title:"L\'Art du Nœud, <span class=\"highlight\">Tissé avec Âme</span>",
-        hero_desc:"Découvrez l\'univers du macramé artisanal de Joseph Dehazounde. Chaque pièce est unique — sandales, sacs, pixel art — créée avec passion à Porto-Novo.",
-        hero_btn1:'Découvrir mes créations', hero_btn2:'En savoir plus', scroll_lbl:'Défiler',
-        gallery_tag:'Portfolio', gallery_title:'Mes <span class="highlight-text">Créations</span>',
-        gallery_desc:'Les vraies créations de Joseph — 100% faites main à Porto-Novo & Calavi, Bénin.',
-        filter_all:'Tout', filter_pixel:'🎨 Pixel Macramé', filter_bag:'👜 Sacs', filter_shoes:'👡 Sandales',
-        gallery_cta:'Commander une création personnalisée', cat_pixel:'Pixel Macramé', cat_bag:'Sacs Macramé', cat_shoes:'Sandales Macramé',
-        shop_tag:'Boutique', shop_title:'Nos <span class="highlight-text">Produits</span>',
-        shop_desc:'Commandez directement vos créations préférées — livraison à Porto-Novo et Calavi.', btn_order:'Commander',
-        stat_years:'Ans de passion', stat_creations:'Créations uniques', stat_handmade:'Fait à la main', stat_cities:'Villes au Bénin',
-        about_tag:'Mon Histoire', about_title:"À Propos<br>d\'<span class=\"highlight-text\">Art by Joe</span>",
-        about_p1:"Je m\'appelle <strong>Joseph Dehazounde</strong>, passionné d\'art manuel depuis toujours. C\'est durant la période COVID en <strong>2020</strong> que j\'ai découvert le macramé — un art ancestral du nœud qui m\'a immédiatement captivé.",
-        about_p2:"Basé à <strong>Porto-Novo</strong> (carrefour du Cinquantenaire) et à <strong>Calavi à l\'UAC</strong>, je crée des pièces uniques : sandales papillon & géométriques, sacs tissés, portraits pixel macramé.",
-        feat1_title:'Fait Main', feat1_desc:'Chaque pièce est unique',
-        feat2_title:'Matériaux Naturels', feat2_desc:'Fils de qualité premium',
-        feat3_title:'Livraison Soignée', feat3_desc:'Porto-Novo & Calavi',
-        contact_tag:'Restons en Contact', contact_title:'Parlons de <span class="highlight-text">Votre Projet</span>',
-        contact_desc:"Vous avez une idée de création personnalisée ? N\'hésitez pas — je suis disponible et réactif !",
-        lbl_name:'Votre nom *', lbl_email:'Votre email *', lbl_subject:'Sujet', lbl_message:'Votre message *',
-        ph_name:'Joseph Dupont', ph_email:'vous@exemple.com', ph_subject:'Commande personnalisée', ph_message:'Décrivez votre projet...',
-        btn_send:'Envoyer le message', success_title:'Message envoyé !', success_msg:'Merci ! Joseph vous répond très vite.',
-        footer_desc:'Créations macramé 100% faites main — sandales, sacs, pixel art. Porto-Novo & Calavi, Bénin 🇧🇯',
-        footer_nav:'Navigation', footer_svc:'Services', footer_contact:'Contact',
-        svc1:'Commandes personnalisées', svc2:'Sandales macramé', svc3:'Sacs macramé', svc4:'Pixel macramé',
-        footer_copy:'© 2025 Art by Joe · Tous droits réservés · Fait avec ❤ au Bénin 🇧🇯',
-        modal_title:'Passer une commande', modal_lbl_name:'Votre nom complet *', modal_lbl_phone:'Votre téléphone *',
-        modal_lbl_city:'Votre ville *', modal_lbl_note:'Note (taille, couleur…)', modal_lbl_momo:'N° MoMo pour le paiement *',
-        modal_ph_name:'Ex: Awa Mensah', modal_ph_phone:'Ex: +229 97 00 00 00', modal_ph_city:'Ex: Porto-Novo',
-        modal_ph_note:'Ex: Taille 39, couleur rouge', modal_ph_momo:'Votre numéro MTN MoMo',
-        modal_momo_title:'Paiement MTN Mobile Money',
-        modal_momo_desc:'Envoyez <strong>PRICE</strong> au numéro <span class="momo-number">MOMO_NUMBER</span> avant de valider.',
-        modal_momo_steps:['Ouvrez votre app MTN MoMo','Transfert → entrez le numéro','Montant : PRICE','Validez, puis confirmez ici'],
-        modal_submit:'Confirmer la commande ✓', modal_sending:'Envoi en cours…',
-        modal_success_title:'Commande reçue ! 🎉',
-        modal_success_msg:'Merci <strong>NAME</strong> ! Votre commande a bien été enregistrée. Joseph vous contactera très vite au <strong>PHONE</strong> pour confirmer.',
-      },
-      en: {
-        nav_home:'Home', nav_gallery:'Gallery', nav_shop:'Shop', nav_about:'About', nav_contact:'Contact', nav_order:'Order Now',
-        hero_tag:'Unique Creations · Benin 🇧🇯',
-        hero_title:"The Art of Knots, <span class=\"highlight\">Woven with Soul</span>",
-        hero_desc:"Discover Joseph Dehazounde's world of handcrafted macramé. Each piece is unique — sandals, bags, pixel art — crafted with passion in Porto-Novo.",
-        hero_btn1:'Discover my creations', hero_btn2:'Learn more', scroll_lbl:'Scroll',
-        gallery_tag:'Portfolio', gallery_title:'My <span class="highlight-text">Creations</span>',
-        gallery_desc:"Joseph's real creations — 100% handmade in Porto-Novo & Calavi, Benin.",
-        filter_all:'All', filter_pixel:'🎨 Pixel Macramé', filter_bag:'👜 Bags', filter_shoes:'👡 Sandals',
-        gallery_cta:'Order a custom creation', cat_pixel:'Pixel Macramé', cat_bag:'Macramé Bags', cat_shoes:'Macramé Sandals',
-        shop_tag:'Shop', shop_title:'Our <span class="highlight-text">Products</span>',
-        shop_desc:'Order your favourite creations directly — delivery to Porto-Novo and Calavi.', btn_order:'Order',
-        stat_years:'Years of passion', stat_creations:'Unique creations', stat_handmade:'Handmade', stat_cities:'Cities in Benin',
-        about_tag:'My Story', about_title:"About<br><span class=\"highlight-text\">Art by Joe</span>",
-        about_p1:"My name is <strong>Joseph Dehazounde</strong>, passionate about hand crafts since forever. It was during the COVID period in <strong>2020</strong> that I discovered macramé — an ancestral knotting art that immediately captivated me.",
-        about_p2:"Based in <strong>Porto-Novo</strong> (Cinquantenaire crossroads) and <strong>Calavi at UAC</strong>, I create unique pieces: butterfly & geometric sandals, woven bags, pixel macramé portraits.",
-        feat1_title:'Handmade', feat1_desc:'Every piece is unique',
-        feat2_title:'Natural Materials', feat2_desc:'Premium quality threads',
-        feat3_title:'Careful Delivery', feat3_desc:'Porto-Novo & Calavi',
-        contact_tag:'Stay in Touch', contact_title:"Let's Talk About <span class=\"highlight-text\">Your Project</span>",
-        contact_desc:"Have a custom creation idea? Don't hesitate — I'm available and responsive!",
-        lbl_name:'Your name *', lbl_email:'Your email *', lbl_subject:'Subject', lbl_message:'Your message *',
-        ph_name:'John Doe', ph_email:'you@example.com', ph_subject:'Custom order', ph_message:'Describe your project...',
-        btn_send:'Send message', success_title:'Message sent!', success_msg:'Thank you! Joseph will reply very soon.',
-        footer_desc:'100% handmade macramé creations — sandals, bags, pixel art. Porto-Novo & Calavi, Benin 🇧🇯',
-        footer_nav:'Navigation', footer_svc:'Services', footer_contact:'Contact',
-        svc1:'Custom orders', svc2:'Macramé sandals', svc3:'Macramé bags', svc4:'Pixel macramé',
-        footer_copy:'© 2025 Art by Joe · All rights reserved · Made with ❤ in Benin 🇧🇯',
-        modal_title:'Place an order', modal_lbl_name:'Your full name *', modal_lbl_phone:'Your phone *',
-        modal_lbl_city:'Your city *', modal_lbl_note:'Note (size, colour…)', modal_lbl_momo:'MoMo number for payment *',
-        modal_ph_name:'E.g. Awa Mensah', modal_ph_phone:'E.g. +229 97 00 00 00', modal_ph_city:'E.g. Porto-Novo',
-        modal_ph_note:'E.g. Size 39, red colour', modal_ph_momo:'Your MTN MoMo number',
-        modal_momo_title:'MTN Mobile Money Payment',
-        modal_momo_desc:'Send <strong>PRICE</strong> to <span class="momo-number">MOMO_NUMBER</span> before confirming.',
-        modal_momo_steps:['Open your MTN MoMo app','Transfer → enter the number','Amount: PRICE','Validate, then confirm here'],
-        modal_submit:'Confirm order ✓', modal_sending:'Sending…',
-        modal_success_title:'Order received! 🎉',
-        modal_success_msg:'Thank you <strong>NAME</strong>! Your order has been registered. Joseph will contact you very soon at <strong>PHONE</strong> to confirm.',
-      },
-      es: {
-        nav_home:'Inicio', nav_gallery:'Galería', nav_shop:'Tienda', nav_about:'Acerca de', nav_contact:'Contacto', nav_order:'Pedir',
-        hero_tag:'Creaciones Únicas · Benín 🇧🇯',
-        hero_title:"El Arte del Nudo, <span class=\"highlight\">Tejido con Alma</span>",
-        hero_desc:"Descubre el mundo del macramé artesanal de Joseph Dehazounde. Cada pieza es única — sandalias, bolsos, pixel art — creada con pasión en Porto-Novo.",
-        hero_btn1:'Descubrir mis creaciones', hero_btn2:'Saber más', scroll_lbl:'Desplazar',
-        gallery_tag:'Portafolio', gallery_title:'Mis <span class="highlight-text">Creaciones</span>',
-        gallery_desc:'Las verdaderas creaciones de Joseph — 100% hechas a mano en Porto-Novo & Calavi, Benín.',
-        filter_all:'Todo', filter_pixel:'🎨 Pixel Macramé', filter_bag:'👜 Bolsos', filter_shoes:'👡 Sandalias',
-        gallery_cta:'Pedir una creación personalizada', cat_pixel:'Pixel Macramé', cat_bag:'Bolsos Macramé', cat_shoes:'Sandalias Macramé',
-        shop_tag:'Tienda', shop_title:'Nuestros <span class="highlight-text">Productos</span>',
-        shop_desc:'Pide directamente tus creaciones favoritas — entrega en Porto-Novo y Calavi.', btn_order:'Pedir',
-        stat_years:'Años de pasión', stat_creations:'Creaciones únicas', stat_handmade:'Hecho a mano', stat_cities:'Ciudades en Benín',
-        about_tag:'Mi Historia', about_title:"Acerca de<br><span class=\"highlight-text\">Art by Joe</span>",
-        about_p1:"Me llamo <strong>Joseph Dehazounde</strong>, apasionado por las manualidades desde siempre. Fue durante el período COVID en <strong>2020</strong> que descubrí el macramé — un arte ancestral del nudo que me cautivó de inmediato.",
-        about_p2:"Con base en <strong>Porto-Novo</strong> (cruce del Cincuentenario) y <strong>Calavi en la UAC</strong>, creo piezas únicas: sandalias mariposa y geométricas, bolsos tejidos, retratos pixel macramé.",
-        feat1_title:'Hecho a Mano', feat1_desc:'Cada pieza es única',
-        feat2_title:'Materiales Naturales', feat2_desc:'Hilos de calidad premium',
-        feat3_title:'Entrega Cuidadosa', feat3_desc:'Porto-Novo & Calavi',
-        contact_tag:'Mantengamos el Contacto', contact_title:'Hablemos de <span class="highlight-text">Tu Proyecto</span>',
-        contact_desc:"¿Tienes una idea de creación personalizada? No dudes — ¡estoy disponible y soy reactivo!",
-        lbl_name:'Tu nombre *', lbl_email:'Tu correo *', lbl_subject:'Asunto', lbl_message:'Tu mensaje *',
-        ph_name:'Ej: Juan García', ph_email:'tu@ejemplo.com', ph_subject:'Pedido personalizado', ph_message:'Describe tu proyecto...',
-        btn_send:'Enviar mensaje', success_title:'¡Mensaje enviado!', success_msg:'¡Gracias! Joseph te responderá muy pronto.',
-        footer_desc:'Creaciones de macramé 100% hechas a mano — sandalias, bolsos, pixel art. Porto-Novo & Calavi, Benín 🇧🇯',
-        footer_nav:'Navegación', footer_svc:'Servicios', footer_contact:'Contacto',
-        svc1:'Pedidos personalizados', svc2:'Sandalias macramé', svc3:'Bolsos macramé', svc4:'Pixel macramé',
-        footer_copy:'© 2025 Art by Joe · Todos los derechos reservados · Hecho con ❤ en Benín 🇧🇯',
-        modal_title:'Realizar un pedido', modal_lbl_name:'Tu nombre completo *', modal_lbl_phone:'Tu teléfono *',
-        modal_lbl_city:'Tu ciudad *', modal_lbl_note:'Nota (talla, color…)', modal_lbl_momo:'N° MoMo para el pago *',
-        modal_ph_name:'Ej: Awa Mensah', modal_ph_phone:'Ej: +229 97 00 00 00', modal_ph_city:'Ej: Porto-Novo',
-        modal_ph_note:'Ej: Talla 39, color rojo', modal_ph_momo:'Tu número MTN MoMo',
-        modal_momo_title:'Pago MTN Mobile Money',
-        modal_momo_desc:'Envía <strong>PRICE</strong> al número <span class="momo-number">MOMO_NUMBER</span> antes de confirmar.',
-        modal_momo_steps:['Abre tu app MTN MoMo','Transferencia → ingresa el número','Monto: PRICE','Valida y confirma aquí'],
-        modal_submit:'Confirmar pedido ✓', modal_sending:'Enviando…',
-        modal_success_title:'¡Pedido recibido! 🎉',
-        modal_success_msg:'¡Gracias <strong>NAME</strong>! Tu pedido ha sido registrado. Joseph te contactará muy pronto al <strong>PHONE</strong> para confirmar.',
-      }
-    };
-  
-    /* CONFIG */
-    const MOMO_NUMBER = '+229 01 62 10 86 94';
-    const API_URL     = 'http://localhost:3000/api/orders';
-    const LANGS       = ['fr', 'en', 'es'];
-    let currentLang   = localStorage.getItem('abj_lang') || 'fr';
-  
-    /* ══ 3. BOUTON LANGUE UNIQUE CYCLIQUE ══ */
-    function injectLangSwitcher() {
-      const headerContent = document.querySelector('.header-content');
-      if (!headerContent) return;
-      const switcher = document.createElement('div');
-      switcher.className = 'lang-switcher';
-      switcher.innerHTML = '<button class="lang-btn" id="lang-cycle">' + currentLang.toUpperCase() + '</button>';
-      const burger = headerContent.querySelector('.burger-menu');
-      headerContent.insertBefore(switcher, burger);
-      const btn = document.getElementById('lang-cycle');
-      btn.addEventListener('click', () => {
-        const idx  = LANGS.indexOf(currentLang);
-        const next = LANGS[(idx + 1) % LANGS.length];
-        applyLang(next);
-      });
-      btn.addEventListener('mouseenter', () => document.body.classList.add('hov'));
-      btn.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
-    }
-  
-    function updateLangButtons() {
-      const btn = document.getElementById('lang-cycle');
-      if (btn) btn.textContent = currentLang.toUpperCase();
-    }
-  
-    /* ══ 4. APPLIQUER LA TRADUCTION ══ */
-    function applyLang(lang) {
-      if (!i18n[lang]) return;
-      currentLang = lang;
-      localStorage.setItem('abj_lang', lang);
-      const t = i18n[lang];
-      const set   = (sel, key, attr = 'innerHTML') => { const el = document.querySelector(sel); if (el && t[key] !== undefined) el[attr] = t[key]; };
-      const setPh = (sel, key) => { const el = document.querySelector(sel); if (el && t[key] !== undefined) el.placeholder = t[key]; };
-  
-      set('a[href="#home"].nav-link',     'nav_home',    'textContent');
-      set('a[href="#galerie"].nav-link',  'nav_gallery', 'textContent');
-      set('a[href="#boutique"].nav-link', 'nav_shop',    'textContent');
-      set('a[href="#apropos"].nav-link',  'nav_about',   'textContent');
-      set('a[href="#contact"].nav-link',  'nav_contact', 'textContent');
-      document.querySelectorAll('a[href="#contact"].btn-primary.desktop-only').forEach(el => el.textContent = t.nav_order);
-  
-      set('.hero-subtitle',    'hero_tag',   'textContent');
-      set('.hero-title',       'hero_title');
-      set('.hero-description', 'hero_desc',  'textContent');
-      const heroBtns = document.querySelectorAll('.hero-buttons .btn');
-      if (heroBtns[0]) heroBtns[0].textContent = t.hero_btn1;
-      if (heroBtns[1]) heroBtns[1].textContent = t.hero_btn2;
-      set('.scroll-indicator span', 'scroll_lbl', 'textContent');
-  
-      const gallSection = document.querySelector('.gallery-section');
-      if (gallSection) {
-        const tags = gallSection.querySelectorAll('.section-tag');
-        if (tags[0]) tags[0].textContent = t.gallery_tag;
-        set('.gallery-section .section-title',       'gallery_title');
-        set('.gallery-section .section-description', 'gallery_desc', 'textContent');
-        set('.gallery-cta .btn', 'gallery_cta', 'textContent');
-        const filterBtns = gallSection.querySelectorAll('.filter-btn');
-        ['filter_all','filter_pixel','filter_bag','filter_shoes'].forEach((k, i) => { if (filterBtns[i] && t[k]) filterBtns[i].innerHTML = t[k]; });
-        const catTitles = gallSection.querySelectorAll('.gal-cat-title');
-        ['cat_pixel','cat_bag','cat_shoes'].forEach((k, i) => { if (catTitles[i] && t[k]) catTitles[i].textContent = t[k]; });
-      }
-  
-      const boutSection = document.querySelector('.boutique-section');
-      if (boutSection) {
-        const btags = boutSection.querySelectorAll('.section-tag');
-        if (btags[0]) btags[0].textContent = t.shop_tag;
-        set('.boutique-section .section-title',       'shop_title');
-        set('.boutique-section .section-description', 'shop_desc', 'textContent');
-        boutSection.querySelectorAll('.prod-hover .btn').forEach(btn => {
-          const priceMatch = btn.textContent.match(/[\d\s]+FCFA/);
-          const priceStr   = priceMatch ? priceMatch[0].trim() : '';
-          btn.textContent  = t.btn_order + ' — ' + priceStr;
-        });
-      }
-  
-      const statLabels = document.querySelectorAll('.stat-l');
-      ['stat_years','stat_creations','stat_handmade','stat_cities'].forEach((k, i) => { if (statLabels[i] && t[k]) statLabels[i].textContent = t[k]; });
-  
-      set('.about .section-tag',   'about_tag',   'textContent');
-      set('.about .section-title', 'about_title');
-      const aboutTexts = document.querySelectorAll('.about-text');
-      if (aboutTexts[0]) aboutTexts[0].innerHTML = t.about_p1;
-      if (aboutTexts[1]) aboutTexts[1].innerHTML = t.about_p2;
-      const featTitles = document.querySelectorAll('.feature-item h4');
-      const featDescs  = document.querySelectorAll('.feature-item p');
-      ['feat1_title','feat2_title','feat3_title'].forEach((k, i) => { if (featTitles[i] && t[k]) featTitles[i].textContent = t[k]; });
-      ['feat1_desc','feat2_desc','feat3_desc'].forEach((k, i)   => { if (featDescs[i]  && t[k]) featDescs[i].textContent  = t[k]; });
-  
-      set('.contact .section-tag',   'contact_tag',   'textContent');
-      set('.contact .section-title', 'contact_title');
-      set('.contact-description',    'contact_desc',  'textContent');
-      const labels = document.querySelectorAll('.contact-form .form-group label');
-      ['lbl_name','lbl_email','lbl_subject','lbl_message'].forEach((k, i) => { if (labels[i] && t[k]) labels[i].textContent = t[k]; });
-      setPh('#name','ph_name'); setPh('#email','ph_email'); setPh('#subject','ph_subject'); setPh('#message','ph_message');
-      const sendBtn = document.querySelector('#contact-form .btn-primary span');
-      if (sendBtn) sendBtn.textContent = t.btn_send;
-      set('#form-success h3', 'success_title', 'textContent');
-      set('#form-success p',  'success_msg',   'textContent');
-  
-      set('.footer-text', 'footer_desc', 'textContent');
-      const footerTitles = document.querySelectorAll('.footer-title');
-      if (footerTitles[1]) footerTitles[1].textContent = t.footer_nav;
-      if (footerTitles[2]) footerTitles[2].textContent = t.footer_svc;
-      if (footerTitles[3]) footerTitles[3].textContent = t.footer_contact;
-      set('.footer-bottom p', 'footer_copy', 'textContent');
-      const svcLinks = document.querySelectorAll('.footer-column:nth-child(3) .footer-links a');
-      ['svc1','svc2','svc3','svc4'].forEach((k, i) => { if (svcLinks[i] && t[k]) svcLinks[i].textContent = t[k]; });
-      const footerNavLinks = document.querySelectorAll('.footer-column:nth-child(2) .footer-links a');
-      ['nav_home','nav_gallery','nav_shop','nav_about','nav_contact'].forEach((k, i) => { if (footerNavLinks[i] && t[k]) footerNavLinks[i].textContent = t[k]; });
-  
-      updateModalLang();
-      updateLangButtons();
-      document.documentElement.lang = lang;
-    }
-  
-    /* ══ 5. ORDER MODAL ══ */
-    let currentProduct = null;
-    const overlay = document.createElement('div');
-    overlay.id = 'order-overlay';
-    overlay.className = 'order-overlay';
-    overlay.setAttribute('role', 'dialog');
-    overlay.setAttribute('aria-modal', 'true');
-    overlay.innerHTML = `
-      <div class="order-modal" id="order-modal">
-        <div class="order-modal-header">
-          <h2 id="om-title">Passer une commande</h2>
-          <button class="order-modal-close" id="om-close" aria-label="Fermer">&#x2715;</button>
-        </div>
-        <div class="order-product-recap" id="om-recap">
-          <img class="order-product-img" id="om-img" src="" alt=""/>
-          <div class="order-product-info">
-            <h3 id="om-product-name"></h3>
-            <div class="order-product-price" id="om-price"></div>
-          </div>
-        </div>
-        <div class="momo-block" id="om-momo">
-          <div class="momo-icon">&#x1F4F1;</div>
-          <div class="momo-info">
-            <h4 id="om-momo-title">Paiement MTN Mobile Money</h4>
-            <p id="om-momo-desc"></p>
-            <ol class="momo-steps" id="om-momo-steps"></ol>
-          </div>
-        </div>
-        <form class="order-form" id="order-form" novalidate>
-          <div class="order-form-row">
-            <div class="order-form-group">
-              <label id="om-lbl-name" for="om-customer-name">Votre nom *</label>
-              <input type="text" id="om-customer-name" required/>
-            </div>
-            <div class="order-form-group">
-              <label id="om-lbl-phone" for="om-customer-phone">Téléphone *</label>
-              <input type="tel" id="om-customer-phone" required/>
-            </div>
-          </div>
-          <div class="order-form-row">
-            <div class="order-form-group">
-              <label id="om-lbl-city" for="om-customer-city">Ville *</label>
-              <input type="text" id="om-customer-city" required/>
-            </div>
-            <div class="order-form-group">
-              <label id="om-lbl-momo" for="om-momo-phone">N° MoMo *</label>
-              <input type="tel" id="om-momo-phone" required/>
-            </div>
-          </div>
-          <div class="order-form-group">
-            <label id="om-lbl-note" for="om-note">Note</label>
-            <textarea id="om-note" rows="2"></textarea>
-          </div>
-          <button type="submit" class="order-submit-btn" id="om-submit">
-            <span id="om-submit-lbl">Confirmer la commande &#x2713;</span>
-          </button>
-        </form>
-        <div class="order-success" id="om-success">
-          <span class="order-success-icon">&#x1F389;</span>
-          <h3 id="om-success-title">Commande reçue !</h3>
-          <p id="om-success-msg"></p>
-          <div class="order-id" id="om-order-id"></div>
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-wrap">
+    <div class="ld-icon">✿</div>
+    <div class="ld-title">Art <em>by Joe</em></div>
+    <div class="ld-prog"><div class="ld-bar"></div></div>
+    <p class="ld-sub" data-fr="Macramé Artisanal · Bénin 🇧🇯" data-en="Artisan Macramé · Benin 🇧🇯">Macramé Artisanal · Bénin 🇧🇯</p>
+  </div>
+</div>
+
+<!-- CURSEUR -->
+<div id="cur" aria-hidden="true"></div>
+<div id="cur-r" aria-hidden="true"></div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <a href="#home">
+          <span class="logo-icon">✿</span>
+          <span class="logo-text">Art by Joe</span>
+        </a>
+      </div>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="#home"     class="nav-link active" data-fr="Accueil"  data-en="Home">Accueil</a></li>
+          <li><a href="#galerie"  class="nav-link"        data-fr="Galerie"  data-en="Gallery">Galerie</a></li>
+          <li><a href="#boutique" class="nav-link"        data-fr="Boutique" data-en="Shop">Boutique</a></li>
+          <li><a href="#apropos"  class="nav-link"        data-fr="À Propos" data-en="About">À Propos</a></li>
+          <li><a href="#contact"  class="nav-link"        data-fr="Contact"  data-en="Contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="btn btn-primary desktop-only" data-fr="Commander" data-en="Order Now">Commander</a>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer le thème">🌙</button>
+      <button class="burger-menu" id="burger-menu" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-background">
+    <div class="hero-slider" id="hero-slider">
+      <div class="hero-slide" style="background-image: url('images/sda.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('images/sd17.jpg');"></div>
+    </div>
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-dots" id="hero-dots">
+    <button class="hero-dot active" data-index="0"></button>
+    <button class="hero-dot" data-index="1"></button>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span class="hero-subtitle" data-fr="Créations Uniques · Bénin 🇧🇯" data-en="Unique Creations · Benin 🇧🇯">Créations Uniques · Bénin 🇧🇯</span>
+          <span data-fr="L'Art du Nœud," data-en="The Art of Knots,">L'Art du Nœud,</span>
+          <span class="highlight" data-fr="Tissé avec Âme" data-en="Woven with Soul">Tissé avec Âme</span>
+        </h1>
+        <p class="hero-description" data-fr="Macramé, bracelets, colliers, tricotage, cordonnerie &amp; maroquinerie — chaque pièce unique, créée avec passion à Porto-Novo." data-en="Macramé, bracelets, necklaces, knitting, cobblery &amp; leatherwork — each piece unique, crafted with passion in Porto-Novo.">
+          Macramé, bracelets, colliers, tricotage, cordonnerie &amp; maroquinerie — chaque pièce unique, créée avec passion à Porto-Novo.
+        </p>
+        <div class="hero-buttons">
+          <a href="#galerie" class="btn btn-primary btn-large"   data-fr="Découvrir mes créations" data-en="Discover My Creations">Découvrir mes créations</a>
+          <a href="#apropos" class="btn btn-secondary btn-large" data-fr="En savoir plus"           data-en="Learn More">En savoir plus</a>
         </div>
       </div>
-    `;
-    document.body.appendChild(overlay);
-  
-    const omTitle        = document.getElementById('om-title');
-    const omImg          = document.getElementById('om-img');
-    const omProductName  = document.getElementById('om-product-name');
-    const omPrice        = document.getElementById('om-price');
-    const omMomoTitle    = document.getElementById('om-momo-title');
-    const omMomoDesc     = document.getElementById('om-momo-desc');
-    const omMomoSteps    = document.getElementById('om-momo-steps');
-    const omForm         = document.getElementById('order-form');
-    const omSuccess      = document.getElementById('om-success');
-    const omSuccessTitle = document.getElementById('om-success-title');
-    const omSuccessMsg   = document.getElementById('om-success-msg');
-    const omOrderId      = document.getElementById('om-order-id');
-    const omSubmit       = document.getElementById('om-submit');
-    const omSubmitLbl    = document.getElementById('om-submit-lbl');
-  
-    function updateModalLang() {
-      if (!currentProduct) return;
-      const t = i18n[currentLang];
-      omTitle.textContent = t.modal_title;
-      document.getElementById('om-lbl-name').textContent  = t.modal_lbl_name;
-      document.getElementById('om-lbl-phone').textContent = t.modal_lbl_phone;
-      document.getElementById('om-lbl-city').textContent  = t.modal_lbl_city;
-      document.getElementById('om-lbl-note').textContent  = t.modal_lbl_note;
-      document.getElementById('om-lbl-momo').textContent  = t.modal_lbl_momo;
-      document.getElementById('om-customer-name').placeholder  = t.modal_ph_name;
-      document.getElementById('om-customer-phone').placeholder = t.modal_ph_phone;
-      document.getElementById('om-customer-city').placeholder  = t.modal_ph_city;
-      document.getElementById('om-note').placeholder           = t.modal_ph_note;
-      document.getElementById('om-momo-phone').placeholder     = t.modal_ph_momo;
-      omMomoTitle.textContent = t.modal_momo_title;
-      omMomoDesc.innerHTML = t.modal_momo_desc
-        .replace('PRICE', currentProduct.price + ' FCFA')
-        .replace('MOMO_NUMBER', MOMO_NUMBER);
-      omMomoSteps.innerHTML = t.modal_momo_steps
-        .map(s => '<li>' + s.replace('PRICE', currentProduct.price + ' FCFA') + '</li>').join('');
-      omSubmitLbl.textContent = t.modal_submit;
-    }
-  
-    function openOrderModal(product) {
-      currentProduct = product;
-      omImg.src = product.img || '';
-      omImg.alt = product.name;
-      omProductName.textContent = product.name;
-      omPrice.textContent       = product.price + ' FCFA';
-      omForm.style.display = 'flex';
-      omSuccess.classList.remove('show');
-      omForm.reset();
-      omSubmit.disabled = false;
-      updateModalLang();
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-  
-    function closeOrderModal() {
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
-      currentProduct = null;
-    }
-  
-    document.getElementById('om-close').addEventListener('click', closeOrderModal);
-    overlay.addEventListener('click', e => { if (e.target === overlay) closeOrderModal(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeOrderModal(); });
-    [document.getElementById('om-close'), omSubmit].forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('hov'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
-    });
-  
-    omForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const t     = i18n[currentLang];
-      const name  = document.getElementById('om-customer-name').value.trim();
-      const phone = document.getElementById('om-customer-phone').value.trim();
-      const city  = document.getElementById('om-customer-city').value.trim();
-      const momo  = document.getElementById('om-momo-phone').value.trim();
-      const note  = document.getElementById('om-note').value.trim();
-  
-      if (!name || !phone || !city || !momo) {
-        [{id:'om-customer-name',val:name},{id:'om-customer-phone',val:phone},
-         {id:'om-customer-city',val:city},{id:'om-momo-phone',val:momo}].forEach(({id, val}) => {
-          const el = document.getElementById(id);
-          el.style.borderColor = val ? '' : '#EF4444';
-          el.style.boxShadow   = val ? '' : '0 0 0 3px rgba(239,68,68,.15)';
-        });
-        return;
-      }
-  
-      omSubmitLbl.textContent = t.modal_sending;
-      omSubmit.disabled = true;
-  
-      const payload = {
-        product_name: currentProduct.name, product_price: currentProduct.price,
-        product_img: currentProduct.img || '', customer_name: name,
-        customer_phone: phone, customer_city: city, customer_note: note, payment_phone: momo
-      };
-  
-      try {
-        const res  = await fetch(API_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
-        const data = await res.json();
-        if (res.ok) {
-          omForm.style.display = 'none';
-          omSuccessTitle.textContent = t.modal_success_title;
-          omSuccessMsg.innerHTML = t.modal_success_msg.replace('NAME', name).replace('PHONE', phone);
-          omOrderId.textContent  = '#' + String(data.order.id).padStart(4, '0');
-          omSuccess.classList.add('show');
-        } else { throw new Error(data.error || 'Erreur'); }
-      } catch(err) {
-        console.warn('Backend non disponible, mode offline.', err);
-        omForm.style.display = 'none';
-        omSuccessTitle.textContent = t.modal_success_title;
-        omSuccessMsg.innerHTML = t.modal_success_msg.replace('NAME', name).replace('PHONE', phone);
-        omOrderId.textContent  = '#' + Math.floor(Math.random() * 9000 + 1000);
-        omSuccess.classList.add('show');
-      } finally {
-        omSubmit.disabled = false;
-        omSubmitLbl.textContent = t.modal_submit;
-      }
-    });
-  
-    ['om-customer-name','om-customer-phone','om-customer-city','om-momo-phone'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.addEventListener('input', () => { el.style.borderColor = ''; el.style.boxShadow = ''; });
-    });
-  
-    /* ══ 6. ATTACHER AUX BOUTONS COMMANDER ══ */
-    function attachOrderButtons() {
-      document.querySelectorAll('.prod-card').forEach(card => {
-        const btn        = card.querySelector('.prod-hover .btn');
-        const nameEl     = card.querySelector('.prod-name');
-        const imgEl      = card.querySelector('.prod-img img');
-        const priceText  = btn ? btn.textContent : '';
-        const priceMatch = priceText.match(/[\d\s]+/);
-        const price      = priceMatch ? parseInt(priceMatch[0].replace(/\s/g,'')) : 0;
-        if (btn) {
-          btn.addEventListener('click', e => {
-            e.stopPropagation();
-            openOrderModal({ name: nameEl ? nameEl.textContent.trim() : 'Création', price, img: imgEl ? imgEl.src : '' });
-          });
-        }
-      });
-      document.querySelectorAll('.btn-primary.btn-sm').forEach(btn => {
-        btn.addEventListener('mouseenter', () => document.body.classList.add('hov'));
-        btn.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
-      });
-    }
-  
-    /* ══ 7. INIT ══ */
-    function init() {
-      injectLangSwitcher();
-      attachOrderButtons();
-      applyLang(currentLang);
-    }
-  
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
-  
-  })();
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span data-fr="Défiler" data-en="Scroll">Défiler</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="gallery-section" id="galerie">
+  <div class="container">
+    <div class="gallery-header">
+      <span class="section-tag" data-fr="Portfolio" data-en="Portfolio">Portfolio</span>
+      <h2 class="section-title"><span data-fr="Mes" data-en="My">Mes</span> <span class="highlight-text" data-fr="Créations" data-en="Creations">Créations</span></h2>
+      <p class="section-description" data-fr="Les vraies créations de Joseph — 100% faites main à Porto-Novo &amp; Calavi, Bénin." data-en="Joseph's real creations — 100% handmade in Porto-Novo &amp; Calavi, Benin.">Les vraies créations de Joseph — 100% faites main à Porto-Novo &amp; Calavi, Bénin.</p>
+    </div>
+
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all"          data-fr="Tout"                 data-en="All">Tout</button>
+      <button class="filter-btn"        data-filter="pixel"        data-fr="🎨 Pixel Macramé"     data-en="🎨 Pixel Macramé">🎨 Pixel Macramé</button>
+      <button class="filter-btn"        data-filter="sac"          data-fr="👜 Sacs"              data-en="👜 Bags">👜 Sacs</button>
+      <button class="filter-btn"        data-filter="sandales"     data-fr="👡 Sandales"          data-en="👡 Sandals">👡 Sandales</button>
+      <button class="filter-btn"        data-filter="bracelet"     data-fr="🧵 Bracelets"         data-en="🧵 Bracelets">🧵 Bracelets</button>
+      <button class="filter-btn"        data-filter="collier"      data-fr="📿 Colliers"          data-en="📿 Necklaces">📿 Colliers</button>
+      <button class="filter-btn"        data-filter="tricot"       data-fr="🧶 Tricotage"         data-en="🧶 Knitting">🧶 Tricotage</button>
+      <button class="filter-btn"        data-filter="cordonnerie"  data-fr="👟 Cordonnerie"       data-en="👟 Cobblery">👟 Cordonnerie</button>
+      <button class="filter-btn"        data-filter="maroquinerie" data-fr="👝 Maroquinerie"      data-en="👝 Leatherwork">👝 Maroquinerie</button>
+    </div>
+
+    <!-- Pixel Macramé -->
+    <div class="gal-category" id="cat-pixel" data-cat="pixel">
+      <div class="gal-cat-header">
+        <span class="gal-cat-icon">🎨</span>
+        <h3 class="gal-cat-title" data-fr="Pixel Macramé" data-en="Pixel Macramé">Pixel Macramé</h3>
+        <div class="gal-cat-line"></div>
+        <span class="gal-cat-count" data-fr="6 créations" data-en="6 creations">6 créations</span>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/mp.jpg"  alt="Portrait Pixel"/> <div class="gallery-overlay"><h3 data-fr="Portrait Pixel"      data-en="Pixel Portrait">Portrait Pixel</h3>      <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/mp0.jpg" alt="Pixel Art #2"/>   <div class="gallery-overlay"><h3>Pixel Art #2</h3>                                                                <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/mp1.jpg" alt="Pixel Art #3"/>   <div class="gallery-overlay"><h3>Pixel Art #3</h3>                                                                <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/mp2.jpg" alt="Pixel Art #4"/>   <div class="gallery-overlay"><h3>Pixel Art #4</h3>                                                                <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/nv.jpg"  alt="Pixel Nouveau"/>  <div class="gallery-overlay"><h3 data-fr="Pixel Art Nouveau"    data-en="New Pixel Art">Pixel Art Nouveau</h3>     <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/nv1.jpg" alt="Pixel Nouveau 2"/><div class="gallery-overlay"><h3 data-fr="Pixel Art Nouveau #2" data-en="New Pixel Art #2">Pixel Art Nouveau #2</h3><p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+      </div>
+    </div>
+
+    <!-- Sacs -->
+    <div class="gal-category" id="cat-sac" data-cat="sac">
+      <div class="gal-cat-header">
+        <span class="gal-cat-icon">👜</span>
+        <h3 class="gal-cat-title" data-fr="Sacs Macramé" data-en="Macramé Bags">Sacs Macramé</h3>
+        <div class="gal-cat-line"></div>
+        <span class="gal-cat-count" data-fr="2 créations" data-en="2 creations">2 créations</span>
+      </div>
+      <div class="gallery-grid gallery-grid-2">
+        <div class="gallery-item" data-category="sac"><div class="gallery-item-inner"><img src="images/sc.jpg"  alt="Sac Damier"/><div class="gallery-overlay"><h3 data-fr="Sac Damier"     data-en="Checkered Bag">Sac Damier</h3>      <p data-fr="Sacs macramé" data-en="Macramé bags">Sacs macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sac"><div class="gallery-item-inner"><img src="images/sc0.jpg" alt="Sac Arc"/><div class="gallery-overlay">   <h3 data-fr="Sac Arc-en-Ciel" data-en="Rainbow Bag">Sac Arc-en-Ciel</h3><p data-fr="Sacs macramé" data-en="Macramé bags">Sacs macramé</p></div></div></div>
+      </div>
+    </div>
+
+    <!-- Sandales -->
+    <div class="gal-category" id="cat-sandales" data-cat="sandales">
+      <div class="gal-cat-header">
+        <span class="gal-cat-icon">👡</span>
+        <h3 class="gal-cat-title" data-fr="Sandales Macramé" data-en="Macramé Sandals">Sandales Macramé</h3>
+        <div class="gal-cat-line"></div>
+        <span class="gal-cat-count" data-fr="12 créations" data-en="12 creations">12 créations</span>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd.jpg"  alt="Sandales #1"/> <div class="gallery-overlay"><h3 data-fr="Sandales"          data-en="Sandals">Sandales</h3>            <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd0.jpg" alt="Sandales #2"/> <div class="gallery-overlay"><h3 data-fr="Sandales Papillon"  data-en="Butterfly Sandals">Sandales Papillon</h3><p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd1.jpg" alt="Sandales #3"/> <div class="gallery-overlay"><h3 data-fr="Sandales Aztèques"  data-en="Aztec Sandals">Sandales Aztèques</h3> <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd2.jpg" alt="Sandales #4"/> <div class="gallery-overlay"><h3 data-fr="Sandales Fleurs"    data-en="Flower Sandals">Sandales Fleurs</h3>   <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd3.jpg" alt="Sandales #5"/> <div class="gallery-overlay"><h3 data-fr="Sandales Géo"       data-en="Geo Sandals">Sandales Géo</h3>        <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd4.jpg" alt="Sandales #6"/> <div class="gallery-overlay"><h3 data-fr="Sandales Portées"   data-en="Worn Sandals">Sandales Portées</h3>    <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd5.jpg" alt="Sandales #7"/> <div class="gallery-overlay"><h3 data-fr="Sandales Colorées"  data-en="Colorful Sandals">Sandales Colorées</h3> <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd6.jpg" alt="Sandales #8"/> <div class="gallery-overlay"><h3 data-fr="Sandales Papillon"  data-en="Butterfly Sandals">Sandales Papillon</h3><p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd7.jpg" alt="Sandales #9"/> <div class="gallery-overlay"><h3>Sandales #9</h3>                                                               <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd8.jpg" alt="Sandales #10"/><div class="gallery-overlay"><h3>Sandales #10</h3>                                                              <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd9.jpg" alt="Sandales #11"/><div class="gallery-overlay"><h3>Sandales #11</h3>                                                              <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sda.jpg" alt="Sandales Ed"/> <div class="gallery-overlay"><h3 data-fr="Sandales Édition"   data-en="Edition Sandals">Sandales Édition</h3>   <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+      </div>
+    </div>
+
+    <!-- Bracelets -->
+    <div class="gal-category" id="cat-bracelet" data-cat="bracelet">
+      <div class="gal-cat-header">
+        <span class="gal-cat-icon">🧵</span>
+        <h3 class="gal-cat-title" data-fr="Bracelets" data-en="Bracelets">Bracelets</h3>
+        <div class="gal-cat-line"></div>
+        <span class="gal-cat-count" data-fr="3 créations" data-en="3 creations">3 créations</span>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-category="bracelet"><div class="gallery-item-inner"><img src="images/sdb.jpg" alt="Bracelet Brésilien"/><div class="gallery-overlay"><h3 data-fr="Bracelet Brésilien"  data-en="Brazilian Bracelet">Bracelet Brésilien</h3><p data-fr="Tressage multicolore"  data-en="Multicolor weaving">Tressage multicolore</p></div></div></div>
+        <div class="gallery-item" data-category="bracelet"><div class="gallery-item-inner"><img src="images/sdc.jpg" alt="Bracelet Paracorde"/><div class="gallery-overlay"><h3 data-fr="Bracelet Paracorde"  data-en="Paracord Bracelet">Bracelet Paracorde</h3><p data-fr="Survie &amp; style"     data-en="Survival &amp; style">Survie &amp; style</p></div></div></div>
+        <div class="gallery-item" data-category="bracelet"><div class="gallery-item-inner"><img src="images/sdd.jpg" alt="Bracelet Alpha"/>   <div class="gallery-overlay"><h3 data-fr="Bracelet Alpha"      data-en="Alpha Bracelet">Bracelet Alpha</h3>     <p data-fr="Motifs géométriques" data-en="Geometric patterns">Motifs géométriques</p></div></div></div>
+      </div>
+    </div>
+
+    <!-- Colliers Thaïlandais -->
+    <div class="gal-category" id="cat-collier" data-cat="collier">
+      <div class="gal-cat-header">
+        <span class="gal-cat-icon">📿</span>
+        <h3 class="gal-cat-title" data-fr="Colliers Thaïlandais" data-en="Thai Necklaces">Colliers Thaïlandais</h3>
+        <div class="gal-cat-line"></div>
+        <span class="gal-cat-count" data-fr="2 créations" data-en="2 creations">2 créations</span>
+      </div>
+      <div class="gallery-grid gallery-grid-2">
+        <div class="gallery-item" data-category="collier"><div class="gallery-item-inner"><img src="images/sdsc.jpg" alt="Collier Thai #1"/><div class="gallery-overlay"><h3 data-fr="Collier Thaïlandais"    data-en="Thai Necklace">Collier Thaïlandais</h3>   <p data-fr="Nœuds traditionnels" data-en="Traditional knots">Nœuds traditionnels</p></div></div></div>
+        <div class="gallery-item" data-category="collier"><div class="gallery-item-inner"><img src="images/sddd.jpg" alt="Collier Thai #2"/><div class="gallery-overlay"><h3 data-fr="Collier Thaïlandais #2" data-en="Thai Necklace #2">Collier Thaïlandais #2</h3><p data-fr="Nœuds traditionnels" data-en="Traditional knots">Nœuds traditionnels</p></div></div></div>
+      </div>
+    </div>
+
+    <!-- Tricotage -->
+    <div class="gal-category" id="cat-tricot" data-cat="tricot">
+      <div class="gal-cat-header">
+        <span class="gal-cat-icon">🧶</span>
+        <h3 class="gal-cat-title" data-fr="Tricotage" data-en="Knitting">Tricotage</h3>
+        <div class="gal-cat-line"></div>
+        <span class="gal-cat-count" data-fr="2 créations" data-en="2 creations">2 créations</span>
+      </div>
+      <div class="gallery-grid gallery-grid-2">
+        <div class="gallery-item" data-category="tricot"><div class="gallery-item-inner"><img src="images/sd20.jpg" alt="Tricot #1"/><div class="gallery-overlay"><h3 data-fr="Création Tricot"    data-en="Knit Creation">Création Tricot</h3>    <p data-fr="Tricotage artisanal" data-en="Artisan knitting">Tricotage artisanal</p></div></div></div>
+        <div class="gallery-item" data-category="tricot"><div class="gallery-item-inner"><img src="images/sd21.jpg" alt="Tricot #2"/><div class="gallery-overlay"><h3 data-fr="Création Tricot #2" data-en="Knit Creation #2">Création Tricot #2</h3><p data-fr="Tricotage artisanal" data-en="Artisan knitting">Tricotage artisanal</p></div></div></div>
+      </div>
+    </div>
+
+    <!-- Cordonnerie -->
+    <div class="gal-category" id="cat-cordonnerie" data-cat="cordonnerie">
+      <div class="gal-cat-header">
+        <span class="gal-cat-icon">👟</span>
+        <h3 class="gal-cat-title" data-fr="Cordonnerie" data-en="Cobblery">Cordonnerie</h3>
+        <div class="gal-cat-line"></div>
+        <span class="gal-cat-count" data-fr="2 créations" data-en="2 creations">2 créations</span>
+      </div>
+      <div class="gallery-grid gallery-grid-2">
+        <div class="gallery-item" data-category="cordonnerie"><div class="gallery-item-inner"><img src="images/sd22.jpg" alt="Cordonnerie #1"/><div class="gallery-overlay"><h3 data-fr="Réparation &amp; Création" data-en="Repair &amp; Creation">Réparation &amp; Création</h3><p data-fr="Cordonnerie artisanale" data-en="Artisan cobblery">Cordonnerie artisanale</p></div></div></div>
+        <div class="gallery-item" data-category="cordonnerie"><div class="gallery-item-inner"><img src="images/sd23.jpg" alt="Cordonnerie #2"/><div class="gallery-overlay"><h3 data-fr="Cordonnerie #2"            data-en="Cobblery #2">Cordonnerie #2</h3>            <p data-fr="Cordonnerie artisanale" data-en="Artisan cobblery">Cordonnerie artisanale</p></div></div></div>
+      </div>
+    </div>
+
+    <!-- Maroquinerie -->
+    <div class="gal-category" id="cat-maroquinerie" data-cat="maroquinerie">
+      <div class="gal-cat-header">
+        <span class="gal-cat-icon">👝</span>
+        <h3 class="gal-cat-title" data-fr="Maroquinerie" data-en="Leatherwork">Maroquinerie</h3>
+        <div class="gal-cat-line"></div>
+        <span class="gal-cat-count" data-fr="2 créations" data-en="2 creations">2 créations</span>
+      </div>
+      <div class="gallery-grid gallery-grid-2">
+        <div class="gallery-item" data-category="maroquinerie"><div class="gallery-item-inner"><img src="images/sd10.jpg" alt="Maroquinerie #1"/><div class="gallery-overlay"><h3 data-fr="Pièce en Cuir"    data-en="Leather Piece">Pièce en Cuir</h3>    <p data-fr="Maroquinerie artisanale" data-en="Artisan leatherwork">Maroquinerie artisanale</p></div></div></div>
+        <div class="gallery-item" data-category="maroquinerie"><div class="gallery-item-inner"><img src="images/sd11.jpg" alt="Maroquinerie #2"/><div class="gallery-overlay"><h3 data-fr="Maroquinerie #2" data-en="Leatherwork #2">Maroquinerie #2</h3><p data-fr="Maroquinerie artisanale" data-en="Artisan leatherwork">Maroquinerie artisanale</p></div></div></div>
+      </div>
+    </div>
+
+    <div class="gallery-cta">
+      <a href="#contact" class="btn btn-primary" data-fr="Commander une création personnalisée" data-en="Order a Custom Creation">Commander une création personnalisée</a>
+    </div>
+  </div>
+</section>
+
+<!-- BOUTIQUE -->
+<section class="boutique-section" id="boutique">
+  <div class="container">
+    <div class="gallery-header">
+      <span class="section-tag" data-fr="Boutique" data-en="Shop">Boutique</span>
+      <h2 class="section-title"><span data-fr="Nos" data-en="Our">Nos</span> <span class="highlight-text" data-fr="Produits" data-en="Products">Produits</span></h2>
+      <p class="section-description" data-fr="Commandez directement vos créations préférées — livraison à Porto-Novo et Calavi." data-en="Order your favorite creations directly — delivery to Porto-Novo and Calavi.">Commandez directement vos créations préférées — livraison à Porto-Novo et Calavi.</p>
+    </div>
+    <div class="shop-grid">
+      <article class="prod-card">
+        <div class="prod-img"><img src="images/sd6.jpg" alt="Sandales Papillon"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 8 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Sandales Macramé" data-en="Macramé Sandals">Sandales Macramé</span><h3 class="prod-name">Sandales Papillon</h3><p class="prod-desc" data-fr="Motif papillon multicolore, semelle naturelle confortable." data-en="Multicolor butterfly pattern, comfortable natural sole.">Motif papillon multicolore, semelle naturelle confortable.</p><div class="prod-foot"><span class="price">8 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><img src="images/sc.jpg" alt="Sac Damier"/><span class="prod-badge badge-pop" data-fr="Populaire" data-en="Popular">Populaire</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 12 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Sacs Macramé" data-en="Macramé Bags">Sacs Macramé</span><h3 class="prod-name">Sac Damier</h3><p class="prod-desc" data-fr="Sac macramé tissé main à motifs damier — robuste et tendance." data-en="Hand-woven macramé bag with checkered pattern — sturdy and stylish.">Sac macramé tissé main à motifs damier — robuste et tendance.</p><div class="prod-foot"><span class="price">12 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><img src="images/sc0.jpg" alt="Sac Arc-en-Ciel"/><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 15 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Sacs Macramé" data-en="Macramé Bags">Sacs Macramé</span><h3 class="prod-name">Sac Arc-en-Ciel</h3><p class="prod-desc" data-fr="Sac rayé multicolore avec nœud satiné décoratif." data-en="Multicolor striped bag with decorative satin knot.">Sac rayé multicolore avec nœud satiné décoratif.</p><div class="prod-foot"><span class="price">15 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><img src="images/mp.jpg" alt="Portrait Pixel"/><span class="prod-badge badge-excl" data-fr="Exclusif" data-en="Exclusive">Exclusif</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 20 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Pixel Macramé" data-en="Pixel Macramé">Pixel Macramé</span><h3 class="prod-name">Portrait Pixel</h3><p class="prod-desc" data-fr="Tableau macramé pixel haute résolution — portrait personnalisé." data-en="High-resolution pixel macramé artwork — custom portrait.">Tableau macramé pixel haute résolution — portrait personnalisé.</p><div class="prod-foot"><span class="price">20 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><img src="images/nv.jpg" alt="Pixel Art Nouveau"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 20 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Pixel Macramé" data-en="Pixel Macramé">Pixel Macramé</span><h3 class="prod-name">Pixel Art Nouveau</h3><p class="prod-desc" data-fr="Tableau macramé pixel — création originale tissée à la main." data-en="Pixel macramé artwork — original creation hand-woven.">Tableau macramé pixel — création originale tissée à la main.</p><div class="prod-foot"><span class="price">20 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><img src="images/nv1.jpg" alt="Pixel Art Nouveau #2"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 20 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Pixel Macramé" data-en="Pixel Macramé">Pixel Macramé</span><h3 class="prod-name">Pixel Art Nouveau #2</h3><p class="prod-desc" data-fr="Tableau macramé pixel — motif exclusif tissé avec soin à Porto-Novo." data-en="Pixel macramé artwork — exclusive pattern carefully woven in Porto-Novo.">Tableau macramé pixel — motif exclusif tissé avec soin à Porto-Novo.</p><div class="prod-foot"><span class="price">20 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><img src="images/sd1.jpg" alt="Sandales Aztèques"/><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 10 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Sandales Macramé" data-en="Macramé Sandals">Sandales Macramé</span><h3 class="prod-name">Sandales Aztèques</h3><p class="prod-desc" data-fr="Design géométrique aztèque multicolore — une pièce unique." data-en="Multicolor Aztec geometric design — a one-of-a-kind piece.">Design géométrique aztèque multicolore — une pièce unique.</p><div class="prod-foot"><span class="price">10 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><img src="images/sd0.jpg" alt="Sandales Fleurs"/><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 9 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Sandales Macramé" data-en="Macramé Sandals">Sandales Macramé</span><h3 class="prod-name">Sandales Fleurs</h3><p class="prod-desc" data-fr="Motifs floraux délicats tissés main — féminins et colorés." data-en="Delicate floral patterns hand-woven — feminine and colorful.">Motifs floraux délicats tissés main — féminins et colorés.</p><div class="prod-foot"><span class="price">9 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><img src="images/sdb.jpg" alt="Bracelet Brésilien"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 2 500 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Bracelets" data-en="Bracelets">Bracelets</span><h3 class="prod-name">Bracelet Brésilien</h3><p class="prod-desc" data-fr="Bracelet tressé multicolore — fait main avec des fils de coton." data-en="Multicolor braided bracelet — handmade with cotton threads.">Bracelet tressé multicolore — fait main avec des fils de coton.</p><div class="prod-foot"><span class="price">2 500 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><img src="images/sdc.jpg" alt="Bracelet Paracorde"/><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 3 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Bracelets" data-en="Bracelets">Bracelets</span><h3 class="prod-name">Bracelet Paracorde</h3><p class="prod-desc" data-fr="Bracelet de survie en paracorde — solide et stylé." data-en="Paracord survival bracelet — strong and stylish.">Bracelet de survie en paracorde — solide et stylé.</p><div class="prod-foot"><span class="price">3 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><img src="images/sdd.jpg" alt="Bracelet Alpha"/><span class="prod-badge badge-excl" data-fr="Exclusif" data-en="Exclusive">Exclusif</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 3 500 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Bracelets" data-en="Bracelets">Bracelets</span><h3 class="prod-name">Bracelet Alpha</h3><p class="prod-desc" data-fr="Bracelet alpha aux motifs géométriques — personnalisable." data-en="Alpha bracelet with geometric patterns — customizable.">Bracelet alpha aux motifs géométriques — personnalisable.</p><div class="prod-foot"><span class="price">3 500 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
+      </article>
+      <article class="prod-card">
+        <div class="prod-img"><img src="images/sdsc.jpg" alt="Collier Thaïlandais"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 5 000 FCFA</button></div></div>
+        <div class="prod-body"><span class="prod-cat" data-fr="Colliers" data-en="Necklaces">Colliers</span><h3 class="prod-name">Collier Thaïlandais</h3><p class="prod-desc" data-fr="Collier aux nœuds thaïlandais traditionnels — élégant et unique." data-en="Necklace with traditional Thai knots — elegant and unique.">Collier aux nœuds thaïlandais traditionnels — élégant et unique.</p><div class="prod-foot"><span class="price">5 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat-item"><span class="stat-n" data-target="5">0</span><span class="stat-l" data-fr="Ans de passion"    data-en="Years of passion">Ans de passion</span></div>
+      <div class="stat-div">✦</div>
+      <div class="stat-item"><span class="stat-n" data-target="50">0</span><span class="stat-l" data-fr="Créations uniques" data-en="Unique creations">Créations uniques</span></div>
+      <div class="stat-div">✦</div>
+      <div class="stat-item"><span class="stat-n" data-target="100" data-suffix="%">0</span><span class="stat-l" data-fr="Fait à la main" data-en="Handmade">Fait à la main</span></div>
+      <div class="stat-div">✦</div>
+      <div class="stat-item"><span class="stat-n" data-target="2">0</span><span class="stat-l" data-fr="Villes au Bénin" data-en="Cities in Benin">Villes au Bénin</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- À PROPOS -->
+<section class="about" id="apropos">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image">
+        <div class="about-profile">
+          <div class="about-avatar"><img src="images/johao.jpeg" alt="Joseph Dehazounde"/></div>
+          <div class="about-identity">
+            <h3 class="about-name">Joseph Dehazounde</h3>
+            <p class="about-role" data-fr="Artisan Créateur · Bénin" data-en="Artisan Creator · Benin">Artisan Créateur · Bénin</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-content">
+        <span class="section-tag" data-fr="Mon Histoire" data-en="My Story">Mon Histoire</span>
+        <h2 class="section-title">
+          <span data-fr="À Propos d'" data-en="About ">À Propos d'</span><span class="highlight-text">Art by Joe</span>
+        </h2>
+        <p class="about-text" data-fr="Je m'appelle <strong>Joseph Dehazounde</strong>, passionné d'art manuel depuis toujours. C'est durant la période COVID en <strong>2020</strong> que j'ai découvert le macramé — un art ancestral du nœud qui m'a immédiatement captivé." data-en="My name is <strong>Joseph Dehazounde</strong>, passionate about handcraft art my whole life. It was during the COVID period in <strong>2020</strong> that I discovered macramé — an ancestral knotting art that immediately captivated me.">
+          Je m'appelle <strong>Joseph Dehazounde</strong>, passionné d'art manuel depuis toujours. C'est durant la période COVID en <strong>2020</strong> que j'ai découvert le macramé — un art ancestral du nœud qui m'a immédiatement captivé.
+        </p>
+        <p class="about-text" data-fr="Basé à <strong>Porto-Novo</strong> et à <strong>Calavi à l'UAC</strong>, je crée : sandales, sacs, bracelets brésiliens &amp; alpha, bracelets paracorde, colliers thaïlandais, pixel macramé, tricotage, cordonnerie et maroquinerie." data-en="Based in <strong>Porto-Novo</strong> and <strong>Calavi at UAC</strong>, I create: sandals, bags, Brazilian &amp; alpha bracelets, paracord bracelets, Thai necklaces, pixel macramé, knitting, cobblery and leatherwork.">
+          Basé à <strong>Porto-Novo</strong> et à <strong>Calavi à l'UAC</strong>, je crée : sandales, sacs, bracelets brésiliens &amp; alpha, bracelets paracorde, colliers thaïlandais, pixel macramé, tricotage, cordonnerie et maroquinerie.
+        </p>
+        <div class="about-features">
+          <div class="feature-item"><i>❤</i><div><h4 data-fr="Fait Main"          data-en="Handmade">Fait Main</h4>          <p data-fr="Chaque pièce est unique" data-en="Every piece is unique">Chaque pièce est unique</p></div></div>
+          <div class="feature-item"><i>🌿</i><div><h4 data-fr="Matériaux Naturels" data-en="Natural Materials">Matériaux Naturels</h4><p data-fr="Fils de qualité premium" data-en="Premium quality threads">Fils de qualité premium</p></div></div>
+          <div class="feature-item"><i>📦</i><div><h4 data-fr="Livraison Soignée"  data-en="Careful Delivery">Livraison Soignée</h4>  <p data-fr="Porto-Novo &amp; Calavi"  data-en="Porto-Novo &amp; Calavi">Porto-Novo &amp; Calavi</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <span class="section-tag" data-fr="Restons en Contact" data-en="Get in Touch">Restons en Contact</span>
+        <h2 class="section-title"><span data-fr="Parlons de " data-en="Let's Talk About ">Parlons de </span><span class="highlight-text" data-fr="Votre Projet" data-en="Your Project">Votre Projet</span></h2>
+        <p class="contact-description" data-fr="Vous avez une idée de création personnalisée ? N'hésitez pas — je suis disponible et réactif !" data-en="Have an idea for a custom creation? Don't hesitate — I'm available and responsive!">Vous avez une idée de création personnalisée ? N'hésitez pas — je suis disponible et réactif !</p>
+        <div class="contact-details">
+          <div class="contact-detail-item"><span class="cd-icon">✉</span><div><h4>Email</h4><a href="mailto:artbyjoe@gmail.com">artbyjoe@gmail.com</a></div></div>
+          <div class="contact-detail-item"><span class="cd-icon">📍</span><div><h4 data-fr="Localisation" data-en="Location">Localisation</h4><p>Porto-Novo &amp; Calavi, Bénin 🇧🇯</p></div></div>
+          <div class="contact-detail-item"><span class="cd-icon">💬</span><div><h4>WhatsApp</h4><a href="https://wa.me/0162108694">+01 62 10 86 94</a></div></div>
+        </div>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a href="https://wa.me/0162108694" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+        </div>
+      </div>
+      <div class="contact-form-wrapper">
+        <form class="contact-form" id="contact-form">
+          <div class="form-group"><label for="name"    data-fr="Votre nom *"     data-en="Your name *">Votre nom *</label><input type="text"  id="name"    name="name"    required placeholder="Joseph Dupont"/></div>
+          <div class="form-group"><label for="email"   data-fr="Votre email *"   data-en="Your email *">Votre email *</label><input type="email" id="email"   name="email"   required placeholder="vous@exemple.com"/></div>
+          <div class="form-group"><label for="subject" data-fr="Sujet"           data-en="Subject">Sujet</label><input type="text"  id="subject" name="subject" placeholder="Commande personnalisée"/></div>
+          <div class="form-group"><label for="message" data-fr="Votre message *" data-en="Your message *">Votre message *</label><textarea id="message" name="message" rows="5" required placeholder="Décrivez votre projet..."></textarea></div>
+          <button type="submit" class="btn btn-primary btn-block"><span data-fr="Envoyer le message" data-en="Send Message">Envoyer le message</span><span>✈</span></button>
+        </form>
+        <div class="form-success" id="form-success">
+          <span class="success-icon">✓</span>
+          <h3 data-fr="Message envoyé !" data-en="Message sent!">Message envoyé !</h3>
+          <p data-fr="Merci ! Joseph vous répond très vite." data-en="Thank you! Joseph will reply very soon.">Merci ! Joseph vous répond très vite.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3 class="footer-title">Art by Joe</h3>
+        <p class="footer-text" data-fr="Créations artisanales 100% faites main — macramé, bracelets, colliers, tricotage, cordonnerie &amp; maroquinerie. Porto-Novo &amp; Calavi, Bénin 🇧🇯" data-en="100% handmade artisan creations — macramé, bracelets, necklaces, knitting, cobblery &amp; leatherwork. Porto-Novo &amp; Calavi, Benin 🇧🇯">Créations artisanales 100% faites main — macramé, bracelets, colliers, tricotage, cordonnerie &amp; maroquinerie. Porto-Novo &amp; Calavi, Bénin 🇧🇯</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-title" data-fr="Navigation" data-en="Navigation">Navigation</h3>
+        <ul class="footer-links">
+          <li><a href="#home"     data-fr="Accueil"  data-en="Home">Accueil</a></li>
+          <li><a href="#galerie"  data-fr="Galerie"  data-en="Gallery">Galerie</a></li>
+          <li><a href="#boutique" data-fr="Boutique" data-en="Shop">Boutique</a></li>
+          <li><a href="#apropos"  data-fr="À Propos" data-en="About">À Propos</a></li>
+          <li><a href="#contact"  data-fr="Contact"  data-en="Contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-title" data-fr="Services" data-en="Services">Services</h3>
+        <ul class="footer-links">
+          <li><a href="#contact"  data-fr="Commandes personnalisées"    data-en="Custom orders">Commandes personnalisées</a></li>
+          <li><a href="#galerie"  data-fr="Sandales &amp; Sacs macramé" data-en="Macramé sandals &amp; bags">Sandales &amp; Sacs macramé</a></li>
+          <li><a href="#galerie"  data-fr="Bracelets &amp; Colliers"    data-en="Bracelets &amp; Necklaces">Bracelets &amp; Colliers</a></li>
+          <li><a href="#galerie"  data-fr="Tricotage"                   data-en="Knitting">Tricotage</a></li>
+          <li><a href="#galerie"  data-fr="Cordonnerie"                 data-en="Cobblery">Cordonnerie</a></li>
+          <li><a href="#galerie"  data-fr="Maroquinerie"                data-en="Leatherwork">Maroquinerie</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-title" data-fr="Contact" data-en="Contact">Contact</h3>
+        <ul class="footer-links">
+          <li><a href="mailto:artbyjoe@gmail.com">artbyjoe@gmail.com</a></li>
+          <li><span>Porto-Novo, Bénin</span></li>
+          <li><span>Calavi, UAC</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-fr="© 2025 Art by Joe · Tous droits réservés · Fait avec ❤ au Bénin 🇧🇯" data-en="© 2025 Art by Joe · All rights reserved · Made with ❤ in Benin 🇧🇯">© 2025 Art by Joe · Tous droits réservés · Fait avec ❤ au Bénin 🇧🇯</p>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-to-top" id="scroll-to-top" aria-label="Retour en haut">↑</button>
+<script src="script.js"></script>
+<script src="lightbox.js"></script>
+<script src="order-modal.js"></script>
+</body>
+</html>
