@@ -864,7 +864,7 @@ section { padding: var(--spacing-xl) 0; }
   .formation-block { margin-bottom: 4rem; }
   .formation-number { font-size: 3rem; }
 
-       { font-size:clamp(2rem,8vw,3rem); }
+  .hero-title       { font-size:clamp(2rem,8vw,3rem); }
   .hero-description { font-size:.92rem; padding:0 .5rem; }
   .hero-buttons     { flex-direction:column; align-items:center; }
   .btn-large        { width:100%; max-width:320px; justify-content:center; }
