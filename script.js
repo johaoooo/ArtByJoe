@@ -75,7 +75,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 function animateOnScroll() {
   const elements = document.querySelectorAll(
     '.gallery-item, .feature-item, .about-image, .about-content, ' +
-    '.contact-info, .contact-form-wrapper, .prod-card, .gal-category, .stat-item'
+    '.contact-info, .contact-form-wrapper, .prod-card, .gal-category, .stat-item, ' +
+    '.formation-block, .formations-header'
   );
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -145,7 +146,7 @@ if (contactForm) {
     submitBtn.disabled = true;
     lastSubmit = now;
     try {
-      const res = await fetch('https://artbyjoe-production.up.railway.app/api/messages', {
+      const res = await fetch('http://localhost:3000/api/messages', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, subject, message })
