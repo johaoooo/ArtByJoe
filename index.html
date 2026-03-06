@@ -7,7 +7,8 @@
   <title>Art by Joe — Macramé Artisanal · Bénin 🇧🇯</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/></noscript>
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="lightbox.css"/>
   <link rel="stylesheet" href="order-modal.css"/>
@@ -15,19 +16,6 @@
 <body>
 
 <!-- LOADER -->
-<div id="loader">
-  <div class="ld-wrap">
-    <div class="ld-icon">✿</div>
-    <div class="ld-title">Art <em>by Joe</em></div>
-    <div class="ld-prog"><div class="ld-bar"></div></div>
-    <p class="ld-sub" data-fr="Macramé Artisanal · Bénin 🇧🇯" data-en="Artisan Macramé · Benin 🇧🇯">Macramé Artisanal · Bénin 🇧🇯</p>
-  </div>
-</div>
-
-<!-- CURSEUR -->
-<div id="cur" aria-hidden="true"></div>
-<div id="cur-r" aria-hidden="true"></div>
-
 <!-- HEADER -->
 <header class="header" id="header">
   <div class="container">
@@ -124,12 +112,12 @@
         <span class="gal-cat-count" data-fr="6 créations" data-en="6 creations">6 créations</span>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/mp.jpg"  alt="Portrait Pixel"/> <div class="gallery-overlay"><h3 data-fr="Portrait Pixel"      data-en="Pixel Portrait">Portrait Pixel</h3>      <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
-        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/mp0.jpg" alt="Pixel Art #2"/>   <div class="gallery-overlay"><h3>Pixel Art #2</h3>                                                                <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
-        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/mp1.jpg" alt="Pixel Art #3"/>   <div class="gallery-overlay"><h3>Pixel Art #3</h3>                                                                <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
-        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/mp2.jpg" alt="Pixel Art #4"/>   <div class="gallery-overlay"><h3>Pixel Art #4</h3>                                                                <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
-        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/nv.jpg"  alt="Pixel Nouveau"/>  <div class="gallery-overlay"><h3 data-fr="Pixel Art Nouveau"    data-en="New Pixel Art">Pixel Art Nouveau</h3>     <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
-        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img src="images/nv1.jpg" alt="Pixel Nouveau 2"/><div class="gallery-overlay"><h3 data-fr="Pixel Art Nouveau #2" data-en="New Pixel Art #2">Pixel Art Nouveau #2</h3><p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img loading="lazy" src="images/mp.jpg"  alt="Portrait Pixel"/> <div class="gallery-overlay"><h3 data-fr="Portrait Pixel"      data-en="Pixel Portrait">Portrait Pixel</h3>      <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img loading="lazy" src="images/mp0.jpg" alt="Pixel Art #2"/>   <div class="gallery-overlay"><h3>Pixel Art #2</h3>                                                                <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img loading="lazy" src="images/mp1.jpg" alt="Pixel Art #3"/>   <div class="gallery-overlay"><h3>Pixel Art #3</h3>                                                                <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img loading="lazy" src="images/mp2.jpg" alt="Pixel Art #4"/>   <div class="gallery-overlay"><h3>Pixel Art #4</h3>                                                                <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img loading="lazy" src="images/nv.jpg"  alt="Pixel Nouveau"/>  <div class="gallery-overlay"><h3 data-fr="Pixel Art Nouveau"    data-en="New Pixel Art">Pixel Art Nouveau</h3>     <p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
+        <div class="gallery-item" data-category="pixel"><div class="gallery-item-inner"><img loading="lazy" src="images/nv1.jpg" alt="Pixel Nouveau 2"/><div class="gallery-overlay"><h3 data-fr="Pixel Art Nouveau #2" data-en="New Pixel Art #2">Pixel Art Nouveau #2</h3><p data-fr="Pixel macramé" data-en="Pixel macramé">Pixel macramé</p></div></div></div>
       </div>
     </div>
 
@@ -142,8 +130,8 @@
         <span class="gal-cat-count" data-fr="2 créations" data-en="2 creations">2 créations</span>
       </div>
       <div class="gallery-grid gallery-grid-2">
-        <div class="gallery-item" data-category="sac"><div class="gallery-item-inner"><img src="images/sc.jpg"  alt="Sac Damier"/><div class="gallery-overlay"><h3 data-fr="Sac Damier"     data-en="Checkered Bag">Sac Damier</h3>      <p data-fr="Sacs macramé" data-en="Macramé bags">Sacs macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sac"><div class="gallery-item-inner"><img src="images/sc0.jpg" alt="Sac Arc"/><div class="gallery-overlay">   <h3 data-fr="Sac Arc-en-Ciel" data-en="Rainbow Bag">Sac Arc-en-Ciel</h3><p data-fr="Sacs macramé" data-en="Macramé bags">Sacs macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sac"><div class="gallery-item-inner"><img loading="lazy" src="images/sc.jpg"  alt="Sac Damier"/><div class="gallery-overlay"><h3 data-fr="Sac Damier"     data-en="Checkered Bag">Sac Damier</h3>      <p data-fr="Sacs macramé" data-en="Macramé bags">Sacs macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sac"><div class="gallery-item-inner"><img loading="lazy" src="images/sc0.jpg" alt="Sac Arc"/><div class="gallery-overlay">   <h3 data-fr="Sac Arc-en-Ciel" data-en="Rainbow Bag">Sac Arc-en-Ciel</h3><p data-fr="Sacs macramé" data-en="Macramé bags">Sacs macramé</p></div></div></div>
       </div>
     </div>
 
@@ -156,18 +144,18 @@
         <span class="gal-cat-count" data-fr="12 créations" data-en="12 creations">12 créations</span>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd.jpg"  alt="Sandales #1"/> <div class="gallery-overlay"><h3 data-fr="Sandales"          data-en="Sandals">Sandales</h3>            <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd0.jpg" alt="Sandales #2"/> <div class="gallery-overlay"><h3 data-fr="Sandales Papillon"  data-en="Butterfly Sandals">Sandales Papillon</h3><p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd1.jpg" alt="Sandales #3"/> <div class="gallery-overlay"><h3 data-fr="Sandales Aztèques"  data-en="Aztec Sandals">Sandales Aztèques</h3> <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd2.jpg" alt="Sandales #4"/> <div class="gallery-overlay"><h3 data-fr="Sandales Fleurs"    data-en="Flower Sandals">Sandales Fleurs</h3>   <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd3.jpg" alt="Sandales #5"/> <div class="gallery-overlay"><h3 data-fr="Sandales Géo"       data-en="Geo Sandals">Sandales Géo</h3>        <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd4.jpg" alt="Sandales #6"/> <div class="gallery-overlay"><h3 data-fr="Sandales Portées"   data-en="Worn Sandals">Sandales Portées</h3>    <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd5.jpg" alt="Sandales #7"/> <div class="gallery-overlay"><h3 data-fr="Sandales Colorées"  data-en="Colorful Sandals">Sandales Colorées</h3> <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd6.jpg" alt="Sandales #8"/> <div class="gallery-overlay"><h3 data-fr="Sandales Papillon"  data-en="Butterfly Sandals">Sandales Papillon</h3><p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd7.jpg" alt="Sandales #9"/> <div class="gallery-overlay"><h3>Sandales #9</h3>                                                               <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd8.jpg" alt="Sandales #10"/><div class="gallery-overlay"><h3>Sandales #10</h3>                                                              <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sd9.jpg" alt="Sandales #11"/><div class="gallery-overlay"><h3>Sandales #11</h3>                                                              <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
-        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img src="images/sda.jpg" alt="Sandales Ed"/> <div class="gallery-overlay"><h3 data-fr="Sandales Édition"   data-en="Edition Sandals">Sandales Édition</h3>   <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img loading="lazy" src="images/sd.jpg"  alt="Sandales #1"/> <div class="gallery-overlay"><h3 data-fr="Sandales"          data-en="Sandals">Sandales</h3>            <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img loading="lazy" src="images/sd0.jpg" alt="Sandales #2"/> <div class="gallery-overlay"><h3 data-fr="Sandales Papillon"  data-en="Butterfly Sandals">Sandales Papillon</h3><p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img loading="lazy" src="images/sd1.jpg" alt="Sandales #3"/> <div class="gallery-overlay"><h3 data-fr="Sandales Aztèques"  data-en="Aztec Sandals">Sandales Aztèques</h3> <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img loading="lazy" src="images/sd2.jpg" alt="Sandales #4"/> <div class="gallery-overlay"><h3 data-fr="Sandales Fleurs"    data-en="Flower Sandals">Sandales Fleurs</h3>   <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img loading="lazy" src="images/sd3.jpg" alt="Sandales #5"/> <div class="gallery-overlay"><h3 data-fr="Sandales Géo"       data-en="Geo Sandals">Sandales Géo</h3>        <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img loading="lazy" src="images/sd4.jpg" alt="Sandales #6"/> <div class="gallery-overlay"><h3 data-fr="Sandales Portées"   data-en="Worn Sandals">Sandales Portées</h3>    <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img loading="lazy" src="images/sd5.jpg" alt="Sandales #7"/> <div class="gallery-overlay"><h3 data-fr="Sandales Colorées"  data-en="Colorful Sandals">Sandales Colorées</h3> <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img loading="lazy" src="images/sd6.jpg" alt="Sandales #8"/> <div class="gallery-overlay"><h3 data-fr="Sandales Papillon"  data-en="Butterfly Sandals">Sandales Papillon</h3><p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img loading="lazy" src="images/sd7.jpg" alt="Sandales #9"/> <div class="gallery-overlay"><h3>Sandales #9</h3>                                                               <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img loading="lazy" src="images/sd8.jpg" alt="Sandales #10"/><div class="gallery-overlay"><h3>Sandales #10</h3>                                                              <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img loading="lazy" src="images/sd9.jpg" alt="Sandales #11"/><div class="gallery-overlay"><h3>Sandales #11</h3>                                                              <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
+        <div class="gallery-item" data-category="sandales"><div class="gallery-item-inner"><img loading="lazy" src="images/sda.jpg" alt="Sandales Ed"/> <div class="gallery-overlay"><h3 data-fr="Sandales Édition"   data-en="Edition Sandals">Sandales Édition</h3>   <p data-fr="Sandales macramé" data-en="Macramé sandals">Sandales macramé</p></div></div></div>
       </div>
     </div>
 
@@ -180,9 +168,9 @@
         <span class="gal-cat-count" data-fr="3 créations" data-en="3 creations">3 créations</span>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-item" data-category="bracelet"><div class="gallery-item-inner"><img src="images/sdb.jpg" alt="Bracelet Brésilien"/><div class="gallery-overlay"><h3 data-fr="Bracelet Brésilien"  data-en="Brazilian Bracelet">Bracelet Brésilien</h3><p data-fr="Tressage multicolore"  data-en="Multicolor weaving">Tressage multicolore</p></div></div></div>
-        <div class="gallery-item" data-category="bracelet"><div class="gallery-item-inner"><img src="images/sdc.jpg" alt="Bracelet Paracorde"/><div class="gallery-overlay"><h3 data-fr="Bracelet Paracorde"  data-en="Paracord Bracelet">Bracelet Paracorde</h3><p data-fr="Survie &amp; style"     data-en="Survival &amp; style">Survie &amp; style</p></div></div></div>
-        <div class="gallery-item" data-category="bracelet"><div class="gallery-item-inner"><img src="images/sdd.jpg" alt="Bracelet Alpha"/>   <div class="gallery-overlay"><h3 data-fr="Bracelet Alpha"      data-en="Alpha Bracelet">Bracelet Alpha</h3>     <p data-fr="Motifs géométriques" data-en="Geometric patterns">Motifs géométriques</p></div></div></div>
+        <div class="gallery-item" data-category="bracelet"><div class="gallery-item-inner"><img loading="lazy" src="images/sdb.jpg" alt="Bracelet Brésilien"/><div class="gallery-overlay"><h3 data-fr="Bracelet Brésilien"  data-en="Brazilian Bracelet">Bracelet Brésilien</h3><p data-fr="Tressage multicolore"  data-en="Multicolor weaving">Tressage multicolore</p></div></div></div>
+        <div class="gallery-item" data-category="bracelet"><div class="gallery-item-inner"><img loading="lazy" src="images/sdc.jpg" alt="Bracelet Paracorde"/><div class="gallery-overlay"><h3 data-fr="Bracelet Paracorde"  data-en="Paracord Bracelet">Bracelet Paracorde</h3><p data-fr="Survie &amp; style"     data-en="Survival &amp; style">Survie &amp; style</p></div></div></div>
+        <div class="gallery-item" data-category="bracelet"><div class="gallery-item-inner"><img loading="lazy" src="images/sdd.jpg" alt="Bracelet Alpha"/>   <div class="gallery-overlay"><h3 data-fr="Bracelet Alpha"      data-en="Alpha Bracelet">Bracelet Alpha</h3>     <p data-fr="Motifs géométriques" data-en="Geometric patterns">Motifs géométriques</p></div></div></div>
       </div>
     </div>
 
@@ -195,8 +183,8 @@
         <span class="gal-cat-count" data-fr="2 créations" data-en="2 creations">2 créations</span>
       </div>
       <div class="gallery-grid gallery-grid-2">
-        <div class="gallery-item" data-category="collier"><div class="gallery-item-inner"><img src="images/sdsc.jpg" alt="Collier Thai #1"/><div class="gallery-overlay"><h3 data-fr="Collier Thaïlandais"    data-en="Thai Necklace">Collier Thaïlandais</h3>   <p data-fr="Nœuds traditionnels" data-en="Traditional knots">Nœuds traditionnels</p></div></div></div>
-        <div class="gallery-item" data-category="collier"><div class="gallery-item-inner"><img src="images/sddd.jpg" alt="Collier Thai #2"/><div class="gallery-overlay"><h3 data-fr="Collier Thaïlandais #2" data-en="Thai Necklace #2">Collier Thaïlandais #2</h3><p data-fr="Nœuds traditionnels" data-en="Traditional knots">Nœuds traditionnels</p></div></div></div>
+        <div class="gallery-item" data-category="collier"><div class="gallery-item-inner"><img loading="lazy" src="images/sdsc.jpg" alt="Collier Thai #1"/><div class="gallery-overlay"><h3 data-fr="Collier Thaïlandais"    data-en="Thai Necklace">Collier Thaïlandais</h3>   <p data-fr="Nœuds traditionnels" data-en="Traditional knots">Nœuds traditionnels</p></div></div></div>
+        <div class="gallery-item" data-category="collier"><div class="gallery-item-inner"><img loading="lazy" src="images/sddd.jpg" alt="Collier Thai #2"/><div class="gallery-overlay"><h3 data-fr="Collier Thaïlandais #2" data-en="Thai Necklace #2">Collier Thaïlandais #2</h3><p data-fr="Nœuds traditionnels" data-en="Traditional knots">Nœuds traditionnels</p></div></div></div>
       </div>
     </div>
 
@@ -209,8 +197,8 @@
         <span class="gal-cat-count" data-fr="2 créations" data-en="2 creations">2 créations</span>
       </div>
       <div class="gallery-grid gallery-grid-2">
-        <div class="gallery-item" data-category="tricot"><div class="gallery-item-inner"><img src="images/sd20.jpg" alt="Tricot #1"/><div class="gallery-overlay"><h3 data-fr="Création Tricot"    data-en="Knit Creation">Création Tricot</h3>    <p data-fr="Tricotage artisanal" data-en="Artisan knitting">Tricotage artisanal</p></div></div></div>
-        <div class="gallery-item" data-category="tricot"><div class="gallery-item-inner"><img src="images/sd21.jpg" alt="Tricot #2"/><div class="gallery-overlay"><h3 data-fr="Création Tricot #2" data-en="Knit Creation #2">Création Tricot #2</h3><p data-fr="Tricotage artisanal" data-en="Artisan knitting">Tricotage artisanal</p></div></div></div>
+        <div class="gallery-item" data-category="tricot"><div class="gallery-item-inner"><img loading="lazy" src="images/sd20.jpg" alt="Tricot #1"/><div class="gallery-overlay"><h3 data-fr="Création Tricot"    data-en="Knit Creation">Création Tricot</h3>    <p data-fr="Tricotage artisanal" data-en="Artisan knitting">Tricotage artisanal</p></div></div></div>
+        <div class="gallery-item" data-category="tricot"><div class="gallery-item-inner"><img loading="lazy" src="images/sd21.jpg" alt="Tricot #2"/><div class="gallery-overlay"><h3 data-fr="Création Tricot #2" data-en="Knit Creation #2">Création Tricot #2</h3><p data-fr="Tricotage artisanal" data-en="Artisan knitting">Tricotage artisanal</p></div></div></div>
       </div>
     </div>
 
@@ -223,8 +211,8 @@
         <span class="gal-cat-count" data-fr="2 créations" data-en="2 creations">2 créations</span>
       </div>
       <div class="gallery-grid gallery-grid-2">
-        <div class="gallery-item" data-category="cordonnerie"><div class="gallery-item-inner"><img src="images/sd22.jpg" alt="Cordonnerie #1"/><div class="gallery-overlay"><h3 data-fr="Réparation &amp; Création" data-en="Repair &amp; Creation">Réparation &amp; Création</h3><p data-fr="Cordonnerie artisanale" data-en="Artisan cobblery">Cordonnerie artisanale</p></div></div></div>
-        <div class="gallery-item" data-category="cordonnerie"><div class="gallery-item-inner"><img src="images/sd23.jpg" alt="Cordonnerie #2"/><div class="gallery-overlay"><h3 data-fr="Cordonnerie #2"            data-en="Cobblery #2">Cordonnerie #2</h3>            <p data-fr="Cordonnerie artisanale" data-en="Artisan cobblery">Cordonnerie artisanale</p></div></div></div>
+        <div class="gallery-item" data-category="cordonnerie"><div class="gallery-item-inner"><img loading="lazy" src="images/sd22.jpg" alt="Cordonnerie #1"/><div class="gallery-overlay"><h3 data-fr="Réparation &amp; Création" data-en="Repair &amp; Creation">Réparation &amp; Création</h3><p data-fr="Cordonnerie artisanale" data-en="Artisan cobblery">Cordonnerie artisanale</p></div></div></div>
+        <div class="gallery-item" data-category="cordonnerie"><div class="gallery-item-inner"><img loading="lazy" src="images/sd23.jpg" alt="Cordonnerie #2"/><div class="gallery-overlay"><h3 data-fr="Cordonnerie #2"            data-en="Cobblery #2">Cordonnerie #2</h3>            <p data-fr="Cordonnerie artisanale" data-en="Artisan cobblery">Cordonnerie artisanale</p></div></div></div>
       </div>
     </div>
 
@@ -237,8 +225,8 @@
         <span class="gal-cat-count" data-fr="2 créations" data-en="2 creations">2 créations</span>
       </div>
       <div class="gallery-grid gallery-grid-2">
-        <div class="gallery-item" data-category="maroquinerie"><div class="gallery-item-inner"><img src="images/sd10.jpg" alt="Maroquinerie #1"/><div class="gallery-overlay"><h3 data-fr="Pièce en Cuir"    data-en="Leather Piece">Pièce en Cuir</h3>    <p data-fr="Maroquinerie artisanale" data-en="Artisan leatherwork">Maroquinerie artisanale</p></div></div></div>
-        <div class="gallery-item" data-category="maroquinerie"><div class="gallery-item-inner"><img src="images/sd11.jpg" alt="Maroquinerie #2"/><div class="gallery-overlay"><h3 data-fr="Maroquinerie #2" data-en="Leatherwork #2">Maroquinerie #2</h3><p data-fr="Maroquinerie artisanale" data-en="Artisan leatherwork">Maroquinerie artisanale</p></div></div></div>
+        <div class="gallery-item" data-category="maroquinerie"><div class="gallery-item-inner"><img loading="lazy" src="images/sd10.jpg" alt="Maroquinerie #1"/><div class="gallery-overlay"><h3 data-fr="Pièce en Cuir"    data-en="Leather Piece">Pièce en Cuir</h3>    <p data-fr="Maroquinerie artisanale" data-en="Artisan leatherwork">Maroquinerie artisanale</p></div></div></div>
+        <div class="gallery-item" data-category="maroquinerie"><div class="gallery-item-inner"><img loading="lazy" src="images/sd11.jpg" alt="Maroquinerie #2"/><div class="gallery-overlay"><h3 data-fr="Maroquinerie #2" data-en="Leatherwork #2">Maroquinerie #2</h3><p data-fr="Maroquinerie artisanale" data-en="Artisan leatherwork">Maroquinerie artisanale</p></div></div></div>
       </div>
     </div>
 
@@ -258,51 +246,51 @@
     </div>
     <div class="shop-grid">
       <article class="prod-card">
-        <div class="prod-img"><img src="images/sd6.jpg" alt="Sandales Papillon"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 8 000 FCFA</button></div></div>
+        <div class="prod-img"><img loading="lazy" src="images/sd6.jpg" alt="Sandales Papillon"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 8 000 FCFA</button></div></div>
         <div class="prod-body"><span class="prod-cat" data-fr="Sandales Macramé" data-en="Macramé Sandals">Sandales Macramé</span><h3 class="prod-name">Sandales Papillon</h3><p class="prod-desc" data-fr="Motif papillon multicolore, semelle naturelle confortable." data-en="Multicolor butterfly pattern, comfortable natural sole.">Motif papillon multicolore, semelle naturelle confortable.</p><div class="prod-foot"><span class="price">8 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img"><img src="images/sc.jpg" alt="Sac Damier"/><span class="prod-badge badge-pop" data-fr="Populaire" data-en="Popular">Populaire</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 12 000 FCFA</button></div></div>
+        <div class="prod-img"><img loading="lazy" src="images/sc.jpg" alt="Sac Damier"/><span class="prod-badge badge-pop" data-fr="Populaire" data-en="Popular">Populaire</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 12 000 FCFA</button></div></div>
         <div class="prod-body"><span class="prod-cat" data-fr="Sacs Macramé" data-en="Macramé Bags">Sacs Macramé</span><h3 class="prod-name">Sac Damier</h3><p class="prod-desc" data-fr="Sac macramé tissé main à motifs damier — robuste et tendance." data-en="Hand-woven macramé bag with checkered pattern — sturdy and stylish.">Sac macramé tissé main à motifs damier — robuste et tendance.</p><div class="prod-foot"><span class="price">12 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img"><img src="images/sc0.jpg" alt="Sac Arc-en-Ciel"/><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 15 000 FCFA</button></div></div>
+        <div class="prod-img"><img loading="lazy" src="images/sc0.jpg" alt="Sac Arc-en-Ciel"/><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 15 000 FCFA</button></div></div>
         <div class="prod-body"><span class="prod-cat" data-fr="Sacs Macramé" data-en="Macramé Bags">Sacs Macramé</span><h3 class="prod-name">Sac Arc-en-Ciel</h3><p class="prod-desc" data-fr="Sac rayé multicolore avec nœud satiné décoratif." data-en="Multicolor striped bag with decorative satin knot.">Sac rayé multicolore avec nœud satiné décoratif.</p><div class="prod-foot"><span class="price">15 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img"><img src="images/mp.jpg" alt="Portrait Pixel"/><span class="prod-badge badge-excl" data-fr="Exclusif" data-en="Exclusive">Exclusif</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 20 000 FCFA</button></div></div>
+        <div class="prod-img"><img loading="lazy" src="images/mp.jpg" alt="Portrait Pixel"/><span class="prod-badge badge-excl" data-fr="Exclusif" data-en="Exclusive">Exclusif</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 20 000 FCFA</button></div></div>
         <div class="prod-body"><span class="prod-cat" data-fr="Pixel Macramé" data-en="Pixel Macramé">Pixel Macramé</span><h3 class="prod-name">Portrait Pixel</h3><p class="prod-desc" data-fr="Tableau macramé pixel haute résolution — portrait personnalisé." data-en="High-resolution pixel macramé artwork — custom portrait.">Tableau macramé pixel haute résolution — portrait personnalisé.</p><div class="prod-foot"><span class="price">20 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img"><img src="images/nv.jpg" alt="Pixel Art Nouveau"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 20 000 FCFA</button></div></div>
+        <div class="prod-img"><img loading="lazy" src="images/nv.jpg" alt="Pixel Art Nouveau"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 20 000 FCFA</button></div></div>
         <div class="prod-body"><span class="prod-cat" data-fr="Pixel Macramé" data-en="Pixel Macramé">Pixel Macramé</span><h3 class="prod-name">Pixel Art Nouveau</h3><p class="prod-desc" data-fr="Tableau macramé pixel — création originale tissée à la main." data-en="Pixel macramé artwork — original creation hand-woven.">Tableau macramé pixel — création originale tissée à la main.</p><div class="prod-foot"><span class="price">20 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img"><img src="images/nv1.jpg" alt="Pixel Art Nouveau #2"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 20 000 FCFA</button></div></div>
+        <div class="prod-img"><img loading="lazy" src="images/nv1.jpg" alt="Pixel Art Nouveau #2"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 20 000 FCFA</button></div></div>
         <div class="prod-body"><span class="prod-cat" data-fr="Pixel Macramé" data-en="Pixel Macramé">Pixel Macramé</span><h3 class="prod-name">Pixel Art Nouveau #2</h3><p class="prod-desc" data-fr="Tableau macramé pixel — motif exclusif tissé avec soin à Porto-Novo." data-en="Pixel macramé artwork — exclusive pattern carefully woven in Porto-Novo.">Tableau macramé pixel — motif exclusif tissé avec soin à Porto-Novo.</p><div class="prod-foot"><span class="price">20 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img"><img src="images/sd1.jpg" alt="Sandales Aztèques"/><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 10 000 FCFA</button></div></div>
+        <div class="prod-img"><img loading="lazy" src="images/sd1.jpg" alt="Sandales Aztèques"/><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 10 000 FCFA</button></div></div>
         <div class="prod-body"><span class="prod-cat" data-fr="Sandales Macramé" data-en="Macramé Sandals">Sandales Macramé</span><h3 class="prod-name">Sandales Aztèques</h3><p class="prod-desc" data-fr="Design géométrique aztèque multicolore — une pièce unique." data-en="Multicolor Aztec geometric design — a one-of-a-kind piece.">Design géométrique aztèque multicolore — une pièce unique.</p><div class="prod-foot"><span class="price">10 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img"><img src="images/sd0.jpg" alt="Sandales Fleurs"/><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 9 000 FCFA</button></div></div>
+        <div class="prod-img"><img loading="lazy" src="images/sd0.jpg" alt="Sandales Fleurs"/><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 9 000 FCFA</button></div></div>
         <div class="prod-body"><span class="prod-cat" data-fr="Sandales Macramé" data-en="Macramé Sandals">Sandales Macramé</span><h3 class="prod-name">Sandales Fleurs</h3><p class="prod-desc" data-fr="Motifs floraux délicats tissés main — féminins et colorés." data-en="Delicate floral patterns hand-woven — feminine and colorful.">Motifs floraux délicats tissés main — féminins et colorés.</p><div class="prod-foot"><span class="price">9 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img"><img src="images/sdb.jpg" alt="Bracelet Brésilien"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 2 500 FCFA</button></div></div>
+        <div class="prod-img"><img loading="lazy" src="images/sdb.jpg" alt="Bracelet Brésilien"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 2 500 FCFA</button></div></div>
         <div class="prod-body"><span class="prod-cat" data-fr="Bracelets" data-en="Bracelets">Bracelets</span><h3 class="prod-name">Bracelet Brésilien</h3><p class="prod-desc" data-fr="Bracelet tressé multicolore — fait main avec des fils de coton." data-en="Multicolor braided bracelet — handmade with cotton threads.">Bracelet tressé multicolore — fait main avec des fils de coton.</p><div class="prod-foot"><span class="price">2 500 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img"><img src="images/sdc.jpg" alt="Bracelet Paracorde"/><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 3 000 FCFA</button></div></div>
+        <div class="prod-img"><img loading="lazy" src="images/sdc.jpg" alt="Bracelet Paracorde"/><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 3 000 FCFA</button></div></div>
         <div class="prod-body"><span class="prod-cat" data-fr="Bracelets" data-en="Bracelets">Bracelets</span><h3 class="prod-name">Bracelet Paracorde</h3><p class="prod-desc" data-fr="Bracelet de survie en paracorde — solide et stylé." data-en="Paracord survival bracelet — strong and stylish.">Bracelet de survie en paracorde — solide et stylé.</p><div class="prod-foot"><span class="price">3 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img"><img src="images/sdd.jpg" alt="Bracelet Alpha"/><span class="prod-badge badge-excl" data-fr="Exclusif" data-en="Exclusive">Exclusif</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 3 500 FCFA</button></div></div>
+        <div class="prod-img"><img loading="lazy" src="images/sdd.jpg" alt="Bracelet Alpha"/><span class="prod-badge badge-excl" data-fr="Exclusif" data-en="Exclusive">Exclusif</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 3 500 FCFA</button></div></div>
         <div class="prod-body"><span class="prod-cat" data-fr="Bracelets" data-en="Bracelets">Bracelets</span><h3 class="prod-name">Bracelet Alpha</h3><p class="prod-desc" data-fr="Bracelet alpha aux motifs géométriques — personnalisable." data-en="Alpha bracelet with geometric patterns — customizable.">Bracelet alpha aux motifs géométriques — personnalisable.</p><div class="prod-foot"><span class="price">3 500 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
       <article class="prod-card">
-        <div class="prod-img"><img src="images/sdsc.jpg" alt="Collier Thaïlandais"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 5 000 FCFA</button></div></div>
+        <div class="prod-img"><img loading="lazy" src="images/sdsc.jpg" alt="Collier Thaïlandais"/><span class="prod-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span><div class="prod-hover"><button class="btn btn-primary btn-sm">Commander — 5 000 FCFA</button></div></div>
         <div class="prod-body"><span class="prod-cat" data-fr="Colliers" data-en="Necklaces">Colliers</span><h3 class="prod-name">Collier Thaïlandais</h3><p class="prod-desc" data-fr="Collier aux nœuds thaïlandais traditionnels — élégant et unique." data-en="Necklace with traditional Thai knots — elegant and unique.">Collier aux nœuds thaïlandais traditionnels — élégant et unique.</p><div class="prod-foot"><span class="price">5 000 <small>FCFA</small></span><span class="stars">★★★★★</span></div></div>
       </article>
     </div>
@@ -330,7 +318,7 @@
     <div class="about-grid">
       <div class="about-image">
         <div class="about-profile">
-          <div class="about-avatar"><img src="images/johao.jpeg" alt="Joseph Dehazounde"/></div>
+          <div class="about-avatar"><img loading="lazy" src="images/johao.jpeg" alt="Joseph Dehazounde"/></div>
           <div class="about-identity">
             <h3 class="about-name">Joseph Dehazounde</h3>
             <p class="about-role" data-fr="Artisan Créateur · Bénin" data-en="Artisan Creator · Benin">Artisan Créateur · Bénin</p>
@@ -409,7 +397,7 @@
     <!-- Formation 1 : Macramé — image gauche -->
     <div class="formation-block">
       <div class="formation-img">
-        <img src="images/mp0.jpg" alt="Formation Macramé"/>
+        <img loading="lazy" src="images/mp0.jpg" alt="Formation Macramé"/>
         <span class="formation-badge">🪢 Macramé</span>
       </div>
       <div class="formation-content">
@@ -435,7 +423,7 @@
     <!-- Formation 2 : Bracelets Brésiliens & Alpha — image droite -->
     <div class="formation-block formation-block--reverse">
       <div class="formation-img">
-        <img src="images/sdb.jpg" alt="Formation Bracelets Brésiliens & Alpha"/>
+        <img loading="lazy" src="images/sdb.jpg" alt="Formation Bracelets Brésiliens & Alpha"/>
         <span class="formation-badge">🧵 Brésilien · Alpha</span>
       </div>
       <div class="formation-content">
@@ -461,7 +449,7 @@
     <!-- Formation 3 : Colliers Thaïlandais — image gauche -->
     <div class="formation-block">
       <div class="formation-img">
-        <img src="images/sdsc.jpg" alt="Formation Colliers Thaïlandais"/>
+        <img loading="lazy" src="images/sdsc.jpg" alt="Formation Colliers Thaïlandais"/>
         <span class="formation-badge">📿 Colliers Thaïlandais</span>
       </div>
       <div class="formation-content">
@@ -487,7 +475,7 @@
     <!-- Formation 4 : Paracorde — image droite -->
     <div class="formation-block formation-block--reverse">
       <div class="formation-img">
-        <img src="images/sdc.jpg" alt="Formation Paracorde"/>
+        <img loading="lazy" src="images/sdc.jpg" alt="Formation Paracorde"/>
         <span class="formation-badge">🪢 Paracorde</span>
       </div>
       <div class="formation-content">
@@ -513,7 +501,7 @@
     <!-- Formation 5 : Cordonnerie — image gauche -->
     <div class="formation-block">
       <div class="formation-img">
-        <img src="images/sd22.jpg" alt="Formation Cordonnerie"/>
+        <img loading="lazy" src="images/sd22.jpg" alt="Formation Cordonnerie"/>
         <span class="formation-badge">👟 Cordonnerie</span>
       </div>
       <div class="formation-content">
@@ -592,12 +580,8 @@
 <!-- SCROLL TO TOP -->
 <button class="scroll-to-top" id="scrollTop" aria-label="Retour en haut">↑</button>
 
-<!-- CURSEUR -->
-<div id="cur"></div>
-<div id="cur-r"></div>
-
-<script src="script.js"></script>
-<script src="lightbox.js"></script>
-<script src="order-modal.js"></script>
+<script src="script.js" defer></script>
+<script src="lightbox.js" defer></script>
+<script src="order-modal.js" defer></script>
 </body>
 </html>
