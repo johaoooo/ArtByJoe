@@ -2,33 +2,14 @@
    ART BY JOE — script.js
    ============================================ */
 
-// ── Variables globales ──
 const header       = document.getElementById('header');
 const burgerMenu   = document.getElementById('burger-menu');
 const nav          = document.getElementById('nav');
 const navLinks     = document.querySelectorAll('.nav-link');
-const scrollTopBtn = document.getElementById('scroll-to-top');
+const scrollTopBtn = document.getElementById('scrollTop');
 const contactForm  = document.getElementById('contact-form');
 const formSuccess  = document.getElementById('form-success');
 const filterBtns   = document.querySelectorAll('.filter-btn');
-const loader       = document.getElementById('loader');
-const cur          = document.getElementById('cur');
-const curR         = document.getElementById('cur-r');
-
-// ── LOADER ──
-window.addEventListener('load', () => {
-  setTimeout(() => { if (loader) loader.classList.add('out'); }, 1800);
-});
-
-// ── CURSEUR PERSONNALISÉ ──
-document.addEventListener('mousemove', e => {
-  if (cur)  { cur.style.left  = e.clientX + 'px'; cur.style.top  = e.clientY + 'px'; }
-  if (curR) { curR.style.left = e.clientX + 'px'; curR.style.top = e.clientY + 'px'; }
-});
-document.querySelectorAll('a, button, .gallery-item-inner, .filter-btn, .prod-card').forEach(el => {
-  el.addEventListener('mouseenter', () => document.body.classList.add('hov'));
-  el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
-});
 
 // ── HEADER SCROLL ──
 window.addEventListener('scroll', () => {
@@ -198,21 +179,14 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && nav && nav.classList.contains('active')) toggleMobileMenu();
 });
 
-// ── PAGE FADE IN ──
-document.addEventListener('DOMContentLoaded', () => {
-  document.body.style.opacity = '0';
-  setTimeout(() => { document.body.style.transition = 'opacity 0.5s ease'; document.body.style.opacity = '1'; }, 100);
-});
-
 // ============================================================
-//  HERO SLIDER — glissement automatique (5s) — sans flèches
+//  HERO SLIDER — glissement automatique (5s)
 // ============================================================
 let currentSlide = 0;
 (function () {
   const slider = document.getElementById('hero-slider');
   const dots   = document.querySelectorAll('.hero-dot');
   if (!slider) return;
-
   const total = slider.children.length;
   let autoTimer = null;
 
@@ -223,17 +197,14 @@ let currentSlide = 0;
     slider.style.transform = `translateX(${-(currentSlide * 50)}%)`;
     dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
   }
-
   function startAuto() { stopAuto(); autoTimer = setInterval(() => goTo(currentSlide + 1), 5000); }
   function stopAuto()  { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
 
-  // Dots cliquables
   dots.forEach(dot => dot.addEventListener('click', () => { goTo(parseInt(dot.dataset.index)); startAuto(); }));
 
-  // Swipe tactile
   let touchStartX = 0;
   slider.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-  slider.addEventListener('touchend',   e => {
+  slider.addEventListener('touchend', e => {
     const diff = touchStartX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 50) { goTo(diff > 0 ? currentSlide + 1 : currentSlide - 1); startAuto(); }
   });
