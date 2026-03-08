@@ -242,27 +242,3 @@ let currentSlide = 0;
 })();
 
 console.log('%c Art by Joe — Macrame Artisanal · Benin', 'color: #FF1493; font-size: 18px; font-weight: bold;');
-
-
-// ============================================================
-//  LANGUE FR / EN
-// ============================================================
-(function () {
-  const langBtns  = document.querySelectorAll('.lang-btn');
-  const savedLang = localStorage.getItem('lang') || 'fr';
-
-  function applyLang(lang) {
-    document.querySelectorAll('[data-fr][data-en]').forEach(el => {
-      const val = el.getAttribute('data-' + lang);
-      if (val) el.innerHTML = val;
-    });
-    langBtns.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-    localStorage.setItem('lang', lang);
-  }
-
-  langBtns.forEach(btn => {
-    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
-  });
-
-  applyLang(savedLang);
-})();
