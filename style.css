@@ -263,17 +263,15 @@ body::before {
 .nav-link {
   position: relative;
   display: inline-block;
-  font-size: .63rem;
-  font-weight: 600;
-  letter-spacing: .24em;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.65);
-  padding: .42rem .8rem;
-  /* transition fluide sur couleur + espacement + glow */
-  transition:
-    color .28s ease,
-    letter-spacing .28s ease,
-    text-shadow .28s ease;
+  color: rgba(255,255,255,.75);
+  padding: .5rem .9rem;
+  border-radius: 6px;
+  transition: all .25s ease;
+  transform-origin: center;
 }
 
 /* Séparateur fin entre les liens */
@@ -286,40 +284,38 @@ body::before {
   pointer-events: none;
 }
 
-/* ── Hover : glow doré + léger espacement ── */
+/* ── Hover : fond violet + glow + scale ── */
 .nav-link:hover {
   color: #FACC15;
-  letter-spacing: .28em;
-  text-shadow:
-    0 0 6px  rgba(250,204,21,1),
-    0 0 18px rgba(250,204,21,.6),
-    0 0 38px rgba(250,204,21,.25);
+  background: rgba(109,40,217,.35);
+  transform: scale(1.08);
+  text-shadow: 0 0 10px rgba(250,204,21,.7);
+  box-shadow: 0 0 12px rgba(109,40,217,.4);
 }
 
-/* ── Actif : même glow + petit losange dessous ── */
+/* ── Actif : agrandit + fond coloré + losange ── */
 .nav-link.active {
   color: #FACC15;
-  letter-spacing: .26em;
-  text-shadow:
-    0 0 6px  rgba(250,204,21,1),
-    0 0 18px rgba(250,204,21,.55),
-    0 0 35px rgba(250,204,21,.2);
+  background: linear-gradient(135deg, rgba(109,40,217,.5), rgba(245,158,11,.25));
+  transform: scale(1.1);
+  text-shadow: 0 0 8px rgba(250,204,21,.8);
+  box-shadow: 0 0 16px rgba(109,40,217,.5), inset 0 1px 0 rgba(255,255,255,.1);
+  letter-spacing: .22em;
 }
 .nav-link.active::after {
-  content: '◆';
+  content: '';
   position: absolute;
-  bottom: -.05rem; left: 50%;
+  bottom: 3px; left: 50%;
   transform: translateX(-50%);
-  font-size: .28rem;
-  color: #FACC15;
-  text-shadow: 0 0 8px rgba(250,204,21,.9);
-  line-height: 1;
-  display: block;
+  width: 20px; height: 2px;
+  background: linear-gradient(90deg, #FACC15, #F59E0B);
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(250,204,21,.8);
 }
 
 /* ── Scrolled (fond blanc) ── */
 .header.scrolled .nav-link {
-  color: rgba(30,27,46,.58);
+  color: rgba(30,27,46,.65);
   text-shadow: none;
 }
 .header.scrolled .nav-link + .nav-link::before {
@@ -327,20 +323,20 @@ body::before {
 }
 .header.scrolled .nav-link:hover {
   color: var(--primary-color);
-  letter-spacing: .28em;
-  text-shadow:
-    0 0 6px  rgba(109,40,217,.5),
-    0 0 18px rgba(109,40,217,.25);
+  background: rgba(109,40,217,.08);
+  transform: scale(1.08);
+  text-shadow: none;
+  box-shadow: 0 0 10px rgba(109,40,217,.2);
 }
 .header.scrolled .nav-link.active {
-  color: var(--primary-color);
-  text-shadow:
-    0 0 6px  rgba(109,40,217,.45),
-    0 0 16px rgba(109,40,217,.2);
+  color: var(--white);
+  background: linear-gradient(135deg, #6D28D9, #8B5CF6);
+  transform: scale(1.1);
+  box-shadow: 0 4px 14px rgba(109,40,217,.4);
+  text-shadow: none;
 }
 .header.scrolled .nav-link.active::after {
-  color: var(--primary-color);
-  text-shadow: 0 0 6px rgba(109,40,217,.7);
+  background: linear-gradient(90deg, #FACC15, #F59E0B);
 }
 
 /* ── Bouton Commander ── */
@@ -837,6 +833,7 @@ section { padding: var(--spacing-xl) 0; }
   .about-grid    { grid-template-columns:1fr; gap:var(--spacing-lg); }
   .about-content { padding:0; }
   .about-profile { max-width:100%; width:100%; box-sizing:border-box; }
+  .about-image { display:none !important; }
 
   /* Contact */
   .contact-wrapper { grid-template-columns:1fr; gap:var(--spacing-lg); }
