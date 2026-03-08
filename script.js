@@ -85,7 +85,6 @@ filterBtns.forEach(btn => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const filter = btn.getAttribute('data-filter');
-    let firstVisible = null;
     document.querySelectorAll('.gal-category').forEach(cat => {
       if (filter === 'all' || cat.dataset.cat === filter) {
         cat.classList.remove('hidden');
@@ -94,19 +93,10 @@ filterBtns.forEach(btn => {
           cat.style.transition = 'opacity .4s ease, transform .4s ease';
           cat.style.opacity = '1'; cat.style.transform = 'translateY(0)';
         }, 50);
-        if (!firstVisible) firstVisible = cat;
       } else {
         cat.classList.add('hidden');
       }
     });
-    // Scroll vers la catégorie sélectionnée
-    if (filter !== 'all' && firstVisible) {
-      setTimeout(() => {
-        const headerH = header ? header.offsetHeight : 80;
-        const top = firstVisible.getBoundingClientRect().top + window.scrollY - headerH - 20;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }, 100);
-    }
   });
 });
 
@@ -137,7 +127,7 @@ if (contactForm) {
     submitBtn.disabled = true;
     lastSubmit = now;
     try {
-      const res = await fetch('https://artbyjoe-production.up.railway.app/api/messages', {
+      const res = await fetch('http://localhost:3000/api/messages', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, subject, message })
@@ -150,11 +140,11 @@ if (contactForm) {
           contactForm.style.display = 'flex';
           if (formSuccess) formSuccess.classList.remove('show');
         }, 5000);
-      } else { alert('Erreur lors de l\'envoi. Reessayez.'); }
+      } else { alert('Erreur lors de l\'envoi. Réessayez.'); }
     } catch (err) {
-      alert('Impossible de joindre le serveur.');
+      alert('Impossible de joindre le serveur. Vérifiez que le backend tourne.');
     } finally {
-      submitBtn.innerHTML = '<span>Envoyer le message</span><span>\u2708</span>';
+      submitBtn.innerHTML = '<span>Envoyer le message</span><span>✈</span>';
       submitBtn.disabled = false;
     }
   });
@@ -189,7 +179,9 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && nav && nav.classList.contains('active')) toggleMobileMenu();
 });
 
-// ── HERO SLIDER ──
+// ============================================================
+//  HERO SLIDER — glissement automatique (5s)
+// ============================================================
 let currentSlide = 0;
 (function () {
   const slider = document.getElementById('hero-slider');
@@ -225,20 +217,22 @@ let currentSlide = 0;
   startAuto();
 })();
 
-// ── DARK / LIGHT MODE ──
+// ============================================================
+//  DARK / LIGHT MODE
+// ============================================================
 (function () {
   const toggle     = document.getElementById('theme-toggle');
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
-  if (toggle) toggle.textContent = savedTheme === 'dark' ? 'Jour' : 'Nuit';
+  if (toggle) toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 
   toggle && toggle.addEventListener('click', () => {
     const current = document.documentElement.getAttribute('data-theme');
     const next    = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
-    toggle.textContent = next === 'dark' ? 'Jour' : 'Nuit';
+    toggle.textContent = next === 'dark' ? '☀️' : '🌙';
   });
 })();
 
-console.log('%c Art by Joe — Macrame Artisanal · Benin', 'color: #FF1493; font-size: 18px; font-weight: bold;');
+console.log('%c✿ Art by Joe — Macramé Artisanal · Bénin 🇧🇯', 'color: #FF1493; font-size: 18px; font-weight: bold;');
