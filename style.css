@@ -548,7 +548,7 @@ section { padding: var(--spacing-xl) 0; }
 .about-section::before,.about::before { content:''; position:absolute; inset:0; background:none; opacity:.06; pointer-events:none; z-index:0; }
 .about-grid  { display:grid; grid-template-columns:1fr 1fr; gap:var(--spacing-xl); align-items:center; }
 .about-image { position:relative; display:flex; justify-content:center; align-items:center; }
-.about-profile { display:flex; flex-direction:column; align-items:center; gap:1.5rem; background:#FFFFFF; border-radius:var(--radius-xl); padding:3rem 2.5rem; box-shadow:0 20px 60px rgba(109,40,217,.15); border:1px solid rgba(109,40,217,.1); position:relative; width:100%; max-width:340px; }
+.about-profile { display:flex; flex-direction:column; align-items:center; gap:1.5rem; background:#FFFFFF; border-radius:var(--radius-xl); padding:3rem 2.5rem; box-shadow:0 20px 60px rgba(109,40,217,.15); border:1px solid rgba(109,40,217,.1); position:relative; width:100%; max-width:340px; box-sizing:border-box; overflow:hidden; }
 .about-profile::before { content:''; position:absolute; top:0; left:2rem; right:2rem; height:4px; background:var(--gradient-fire); background-size:200%; animation:gradientFlow 3s ease infinite; border-radius:0 0 4px 4px; }
 .about-avatar { width:180px; height:180px; border-radius:50%; overflow:hidden; border:5px solid #6D28D9; box-shadow:0 0 0 4px rgba(250,204,21,.35),0 12px 35px rgba(109,40,217,.3); flex-shrink:0; }
 .about-avatar img { width:100%; height:100%; object-fit:cover; object-position:top center; border-radius:50%; }
@@ -837,7 +837,7 @@ section { padding: var(--spacing-xl) 0; }
   /* À propos */
   .about-grid    { grid-template-columns:1fr; gap:var(--spacing-lg); }
   .about-content { padding:0; }
-  .about-profile { max-width:100%; }
+  .about-profile { max-width:100%; width:100%; box-sizing:border-box; }
 
   /* Contact */
   .contact-wrapper { grid-template-columns:1fr; gap:var(--spacing-lg); }
@@ -864,8 +864,8 @@ section { padding: var(--spacing-xl) 0; }
   .gallery-grid,.gallery-grid-2 { grid-template-columns:1fr; }
   .gallery-item-inner { height:280px; }
   .stat-n { font-size:2rem; }
-  .about-avatar  { width:140px; height:140px; }
-  .about-profile { padding:2rem 1.2rem; }
+  .about-avatar  { width:clamp(100px,30vw,140px); height:clamp(100px,30vw,140px); }
+  .about-profile { padding:2rem 1.2rem; max-width:100%; width:100%; }
   .contact-form-wrapper { padding:var(--spacing-md); }
   .section-title { font-size:1.8rem; }
   .footer-bottom { font-size:.65rem; }
