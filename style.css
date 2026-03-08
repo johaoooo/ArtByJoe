@@ -114,29 +114,6 @@
 [data-theme="dark"] .header.scrolled .burger-menu span { background: var(--text-main); }
 [data-theme="dark"] .header.scrolled .theme-toggle-btn { border-color: rgba(167,139,250,.4); color: var(--text-main); }
 
-/* ── Sélecteur de langue ── */
-.lang-switcher { display: flex; align-items: center; gap: .3rem; }
-.lang-btn {
-  background: none; border: none;
-  font-family: var(--font-body); font-size: .65rem; font-weight: 700; letter-spacing: .15em;
-  color: rgba(255,255,255,.55);
-  padding: .28rem .38rem;
-  transition: color .25s, text-shadow .25s, transform .2s;
-
-}
-.lang-btn:hover {
-  color: #FACC15;
-  text-shadow: 0 0 12px rgba(250,204,21,.7);
-  transform: scale(1.08);
-}
-.lang-btn.active { color: #FACC15; text-shadow: 0 0 10px rgba(250,204,21,.6); }
-.lang-sep { color: rgba(255,255,255,.18); font-size: .6rem; pointer-events: none; }
-.header.scrolled .lang-btn        { color: var(--gray); }
-.header.scrolled .lang-btn:hover  { color: var(--primary-color); text-shadow: none; }
-.header.scrolled .lang-btn.active { color: var(--primary-color); }
-.header.scrolled .lang-sep        { color: rgba(0,0,0,.15); }
-[data-theme="dark"] .header.scrolled .lang-btn        { color: #A78BFA; }
-[data-theme="dark"] .header.scrolled .lang-btn.active { color: #FACC15; }
 
 /* ── Theme toggle ── */
 .theme-toggle-btn {
