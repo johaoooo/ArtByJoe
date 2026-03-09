@@ -1,12 +1,23 @@
 const sqlite3 = require('sqlite3').verbose();
 const bcrypt  = require('bcryptjs');
 const path    = require('path');
+const fs      = require('fs');
 
-const db = new sqlite3.Database(path.join(__dirname, '../data.db'));
+// ── Chemin persistant Railway ──
+// RAILWAY_VOLUME_MOUNT_PATH est injecté automatiquement par Railway
+// quand un volume est attaché au service (mount path : /data)
+// En local, on utilise ./data comme fallback
+const DATA_DIR = process.env.RAILWAY_VOLUME_MOUNT_PATH || path.join(__dirname, '../data');
+if (!fs.existsSync(DATA_DIR)) {
+  fs.mkdirSync(DATA_DIR, { recursive: true });
+}
+const DB_PATH = path.join(DATA_DIR, 'data.db');
+console.log('📂 Base de données :', DB_PATH);
+
+const db = new sqlite3.Database(DB_PATH);
 
 function initDB() {
   db.serialize(() => {
-
     db.run(`CREATE TABLE IF NOT EXISTS users (
       id         INTEGER PRIMARY KEY AUTOINCREMENT,
       name       TEXT NOT NULL,
@@ -15,7 +26,6 @@ function initDB() {
       role       TEXT DEFAULT 'user',
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )`);
-
     db.run(`CREATE TABLE IF NOT EXISTS orders (
       id             INTEGER PRIMARY KEY AUTOINCREMENT,
       product_name   TEXT    NOT NULL,
@@ -29,7 +39,6 @@ function initDB() {
       status         TEXT    DEFAULT 'pending',
       created_at     DATETIME DEFAULT CURRENT_TIMESTAMP
     )`);
-
     db.run(`CREATE TABLE IF NOT EXISTS messages (
       id         INTEGER PRIMARY KEY AUTOINCREMENT,
       name       TEXT NOT NULL,
@@ -50,12 +59,11 @@ function initDB() {
         );
       }
     });
-
-    console.log('✅ Base de données initialisée (data.db)');
+    console.log('✅ Base de données initialisée');
   });
 }
 
-// Helpers pour utiliser db comme before (promesses)
+// ── Helpers promesses ──
 db.asyncGet = (sql, params = []) => new Promise((resolve, reject) => {
   db.get(sql, params, (err, row) => err ? reject(err) : resolve(row));
 });
