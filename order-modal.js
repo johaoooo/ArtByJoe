@@ -54,7 +54,7 @@
       hero_btn1:'Discover my creations', hero_btn2:'Learn more', scroll_lbl:'Scroll',
       gallery_tag:'Portfolio', gallery_title:'My <span class="highlight-text">Creations</span>',
       gallery_desc:"Joseph's real creations — 100% handmade in Porto-Novo & Calavi, Benin.",
-      filter_all:'All', filter_pixel:'🎨 Pixel Macramé', filter_bag:'👜 Bags', filter_shoes:'👡 Sandals',
+      filter_all:'All', filter_pixel:'Pixel Macramé', filter_bag:'Bags', filter_shoes:'Sandals',
       gallery_cta:'Order a custom creation', cat_pixel:'Pixel Macramé', cat_bag:'Macramé Bags', cat_shoes:'Macramé Sandals',
       shop_tag:'Shop', shop_title:'Our <span class="highlight-text">Products</span>',
       shop_desc:'Order your favourite creations directly — delivery to Porto-Novo and Calavi.', btn_order:'Order',
@@ -82,7 +82,7 @@
       modal_momo_desc:'Send <strong>PRICE</strong> to <span class="momo-number">MOMO_NUMBER</span> before confirming.',
       modal_momo_steps:['Open your MTN MoMo app','Transfer → enter the number','Amount: PRICE','Validate, then confirm here'],
       modal_submit:'Confirm order ✓', modal_sending:'Sending…',
-      modal_success_title:'Order received! 🎉',
+      modal_success_title:'Order received! ',
       modal_success_msg:'Thank you <strong>NAME</strong>! Your order has been registered. Joseph will contact you very soon at <strong>PHONE</strong> to confirm.',
     },
     es: {
@@ -93,7 +93,7 @@
       hero_btn1:'Descubrir mis creaciones', hero_btn2:'Saber más', scroll_lbl:'Desplazar',
       gallery_tag:'Portafolio', gallery_title:'Mis <span class="highlight-text">Creaciones</span>',
       gallery_desc:'Las verdaderas creaciones de Joseph — 100% hechas a mano en Porto-Novo & Calavi, Benín.',
-      filter_all:'Todo', filter_pixel:'🎨 Pixel Macramé', filter_bag:'👜 Bolsos', filter_shoes:'👡 Sandalias',
+      filter_all:'Todo', filter_pixel:'Pixel Macramé', filter_bag:'Bolsos', filter_shoes:'Sandalias',
       gallery_cta:'Pedir una creación personalizada', cat_pixel:'Pixel Macramé', cat_bag:'Bolsos Macramé', cat_shoes:'Sandalias Macramé',
       shop_tag:'Tienda', shop_title:'Nuestros <span class="highlight-text">Productos</span>',
       shop_desc:'Pide directamente tus creaciones favoritas — entrega en Porto-Novo y Calavi.', btn_order:'Pedir',
@@ -121,7 +121,7 @@
       modal_momo_desc:'Envía <strong>PRICE</strong> al número <span class="momo-number">MOMO_NUMBER</span> antes de confirmar.',
       modal_momo_steps:['Abre tu app MTN MoMo','Transferencia → ingresa el número','Monto: PRICE','Valida y confirma aquí'],
       modal_submit:'Confirmar pedido ✓', modal_sending:'Enviando…',
-      modal_success_title:'¡Pedido recibido! 🎉',
+      modal_success_title:'¡Pedido recibido! ',
       modal_success_msg:'¡Gracias <strong>NAME</strong>! Tu pedido ha sido registrado. Joseph te contactará muy pronto al <strong>PHONE</strong> para confirmar.',
     }
   };
@@ -437,12 +437,14 @@
   /* ══ 6. ATTACHER AUX BOUTONS COMMANDER ══ */
   function attachOrderButtons() {
     document.querySelectorAll('.prod-card').forEach(card => {
-      const btn        = card.querySelector('.prod-hover .btn');
-      const nameEl     = card.querySelector('.prod-name');
-      const imgEl      = card.querySelector('.prod-img img');
-      const priceText  = btn ? btn.textContent : '';
+      const btn       = card.querySelector('.prod-hover .btn');
+      const nameEl    = card.querySelector('.prod-name');
+      const imgEl     = card.querySelector('.prod-img img');
+      const priceEl   = card.querySelector('.prod-foot .price');
+      // Lire le prix depuis .price (jamais modifié par la traduction)
+      const priceText = priceEl ? priceEl.textContent : (btn ? btn.textContent : '');
       const priceMatch = priceText.match(/[\d\s]+/);
-      const price      = priceMatch ? parseInt(priceMatch[0].replace(/\s/g,'')) : 0;
+      const price     = priceMatch ? parseInt(priceMatch[0].replace(/\s/g, '')) : 0;
       if (btn) {
         btn.addEventListener('click', e => {
           e.stopPropagation();
