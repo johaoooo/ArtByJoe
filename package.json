@@ -2,8 +2,7 @@
   "name": "artbyjoe",
   "version": "1.0.0",
   "scripts": {
-    "start": "node backend/server.js",
-    "build": "cd backend && npm install"
+    "start": "node backend/server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
